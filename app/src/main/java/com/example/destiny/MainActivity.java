@@ -1,20 +1,22 @@
 package com.example.destiny;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.view.MenuItem;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.Fragment;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText textInput;
-    private TextView textOutput;
+    private BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,16 +29,41 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        bottomNavigationView = findViewById(R.id.bottomNavigation);
 
-        textInput = findViewById(R.id.textBox);
-        textOutput = findViewById(R.id.outputText);
-    }
+        bottomNavigationView.setOnItemSelectedListener(
+        new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item)
+            {
+                Fragment selectedFragment = null;
 
-    public void TransformText(View view) {
-        //textOutput.setText(textInput.getText());
-        StringBuilder sb = new StringBuilder(textInput.getText().toString());
-        sb.reverse();
+                int id = item.getItemId();
 
-        textOutput.setText(sb.toString());
+                if(id == R.id.trainButton)
+                {
+                    selectedFragment = new TrainFragment();
+                }
+                else if(id == R.id.battleButton)
+                {
+                    selectedFragment = new BattleFragment();
+                }
+                else if(id == R.id.guildButton)
+                {
+                    selectedFragment = new GuildFragment();
+                }
+
+                if(selectedFragment != null)
+                {
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.fragmentContainerView, selectedFragment)
+                            .commit();
+                }
+
+                return true;
+            }
+        }
+        );
     }
 }
