@@ -11,6 +11,9 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 
+import com.example.destiny.app.BattleFragment;
+import com.example.destiny.app.GuildFragment;
+import com.example.destiny.app.TrainFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -31,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigationView = findViewById(R.id.bottomNavigation);
 
+        // listener for item selection on nav bar, determining the pressed button
+        // and replacing the active fragment in fragmentContainerView
         bottomNavigationView.setOnItemSelectedListener(
         new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -65,5 +70,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         );
+
+
     }
 }

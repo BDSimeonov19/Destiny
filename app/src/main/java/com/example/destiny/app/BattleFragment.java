@@ -1,4 +1,4 @@
-package com.example.destiny;
+package com.example.destiny.app;
 
 import android.os.Bundle;
 
@@ -8,11 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class TrainFragment extends Fragment {
+import com.example.destiny.R;
+
+public class BattleFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_train, container, false);
+        return inflater.inflate(R.layout.fragment_battle, container, false);
     }
 }
