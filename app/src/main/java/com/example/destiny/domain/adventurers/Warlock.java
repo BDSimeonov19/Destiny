@@ -1,7 +1,9 @@
-package com.example.destiny.domain;
+package com.example.destiny.domain.adventurers;
 
-public class Knight extends Adventurer{
-    public Knight(String adventurerName)
+import com.example.destiny.domain.Records;
+
+public class Warlock extends Adventurer{
+    public Warlock(String adventurerName)
     {
         int attack = 5;
         int physicalResistance = 2;
@@ -15,8 +17,8 @@ public class Knight extends Adventurer{
 
         super.id = java.util.UUID.randomUUID();
         super.adventurerName = adventurerName;
-        super.attackType = AttackType.PHYSICAL;
-        super.className = "Knight";
+        super.attackType = AttackType.MAGICAL;
+        super.className = "Warlock";
         super.experience = 0;
         // TODO: add records
         super.records = new Records();

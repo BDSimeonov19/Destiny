@@ -12,6 +12,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:tag="my_tag_battle"
         android:text="RAAAHHHHH FIGHTING"
         android:textColor="#FFFEFE"
         android:textSize="34sp"

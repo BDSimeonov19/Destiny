@@ -1,4 +1,4 @@
-package com.example.destiny.domain;
+package com.example.destiny.domain.adventurers;
 
 public class CombatStatistics {
     public CombatStatistics(int attack, int physicalResistance, int magicalResistance, int maxHealth, int currentHealth, float critRate, float critDamage)

@@ -1,4 +1,4 @@
-package com.example.destiny.domain;
+package com.example.destiny.domain.areas;
 
 // this class is a singleton
 public class BattleArena extends Area{

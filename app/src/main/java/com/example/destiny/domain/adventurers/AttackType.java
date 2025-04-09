@@ -1,4 +1,4 @@
-package com.example.destiny.domain;
+package com.example.destiny.domain.adventurers;
 
 public enum AttackType {
     PHYSICAL,

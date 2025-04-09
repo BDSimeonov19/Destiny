@@ -34,43 +34,46 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigationView = findViewById(R.id.bottomNavigation);
 
-        // listener for item selection on nav bar, determining the pressed button
-        // and replacing the active fragment in fragmentContainerView
+        // listener for item selection on nav bar
         bottomNavigationView.setOnItemSelectedListener(
         new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item)
             {
-                Fragment selectedFragment = null;
-
-                int id = item.getItemId();
-
-                if(id == R.id.trainButton)
-                {
-                    selectedFragment = new TrainFragment();
-                }
-                else if(id == R.id.battleButton)
-                {
-                    selectedFragment = new BattleFragment();
-                }
-                else if(id == R.id.guildButton)
-                {
-                    selectedFragment = new GuildFragment();
-                }
-
-                if(selectedFragment != null)
-                {
-                    getSupportFragmentManager()
-                            .beginTransaction()
-                            .replace(R.id.fragmentContainerView, selectedFragment)
-                            .commit();
-                }
-
+                replaceFragment(item);
                 return true;
             }
         }
         );
 
+    }
+    // method that determines the selected menu item and
+    // replacing the active fragment accordingly in fragmentContainerView
+    private void replaceFragment(MenuItem item)
+    {
+        Fragment selectedFragment = null;
 
+        int id = item.getItemId();
+
+        if(id == R.id.trainButton)
+        {
+            selectedFragment = new TrainFragment();
+        }
+        else if(id == R.id.battleButton)
+        {
+            selectedFragment = new BattleFragment();
+        }
+        else if(id == R.id.guildButton)
+        {
+            selectedFragment = new GuildFragment();
+        }
+
+        if(selectedFragment != null)
+        {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragmentContainerView, selectedFragment)
+                    .commit();
+        }
     }
 }

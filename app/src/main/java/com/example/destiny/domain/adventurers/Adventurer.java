@@ -1,4 +1,6 @@
-package com.example.destiny.domain;
+package com.example.destiny.domain.adventurers;
+
+import com.example.destiny.domain.Records;
 
 import java.util.UUID;
 

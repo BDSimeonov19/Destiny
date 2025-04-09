@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Destiny"
         tools:targetApi="31">
         <activity
+            android:name=".app.HireAdventurerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".app.AdventurerStatsActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
