@@ -1,6 +1,8 @@
 package com.example.destiny.app;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -27,6 +29,19 @@ public class AdventurerStatsActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        // make back button event listener
+        Button backButton = findViewById(R.id.backButton);
+        backButton.setOnClickListener(
+            new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v) {
+                    getOnBackPressedDispatcher().onBackPressed();
+                }
+            }
+        );
+
 
         // get intent extras and retrieve adventurer with id
         UUID adventurerId = UUID.fromString(getIntent().getStringExtra("adventurerId"));
