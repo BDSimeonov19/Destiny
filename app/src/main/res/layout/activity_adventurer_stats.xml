@@ -16,7 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/classTextView">
+        app:layout_constraintTop_toBottomOf="@+id/experienceTextView">
 
         <ImageView
             android:id="@+id/physicalResistanceImageView"
@@ -69,10 +69,10 @@
             app:layout_row="1" />
 
         <TextView
-            android:id="@+id/defenseTextView"
+            android:id="@+id/maxHealthTextView"
             android:layout_width="125dp"
             android:layout_height="48dp"
-            android:text="Defense\n12"
+            android:text="Max Health\n12"
             android:textAlignment="center"
             app:layout_column="3"
             app:layout_row="0" />
@@ -116,7 +116,7 @@
         app:layout_constraintTop_toBottomOf="@+id/statsGrid" />
 
     <TextView
-        android:id="@+id/battlesWonTextView"
+        android:id="@+id/victoriesTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -131,5 +131,24 @@
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/battlesWonTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/victoriesTextView" />
+
+    <TextView
+        android:id="@+id/attackTypeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/classTextView" />
+
+    <TextView
+        android:id="@+id/experienceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/attackTypeTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

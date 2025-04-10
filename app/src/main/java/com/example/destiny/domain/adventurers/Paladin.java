@@ -1,5 +1,6 @@
 package com.example.destiny.domain.adventurers;
 
+import com.example.destiny.R;
 import com.example.destiny.domain.Records;
 
 public class Paladin extends Adventurer{
@@ -21,8 +22,9 @@ public class Paladin extends Adventurer{
         super.className = "Paladin";
         super.experience = 0;
         // TODO: add records
-        super.records = new Records();
+        super.records = new Records(0, 0);
         super.specialCooldown = 0;
+        super.spriteDrawableId = R.drawable.paladin_sprite;
     }
 
     public int specialAttack() {

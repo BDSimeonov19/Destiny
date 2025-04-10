@@ -1,6 +1,7 @@
 package com.example.destiny.app;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +10,10 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.destiny.R;
+import com.example.destiny.domain.adventurers.Adventurer;
+import com.example.destiny.domain.areas.Guild;
+
+import java.util.UUID;
 
 public class AdventurerStatsActivity extends AppCompatActivity {
 
@@ -22,5 +27,43 @@ public class AdventurerStatsActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        // get intent extras and retrieve adventurer with id
+        UUID adventurerId = UUID.fromString(getIntent().getStringExtra("adventurerId"));
+        System.out.println(adventurerId);
+        Adventurer adventurer = Guild.getInstance().getAdventurerById(adventurerId);
+
+        // get relevant views in layout
+        TextView adventurerNameTextView = findViewById(R.id.adventurerNameTextView);
+        TextView classTextView = findViewById(R.id.classTextView);
+        TextView attackTypeTextView = findViewById(R.id.attackTypeTextView);
+        TextView experienceTextView = findViewById(R.id.experienceTextView);
+        TextView attackTextView = findViewById(R.id.attackTextView);
+        TextView maxHealthTextView = findViewById(R.id.maxHealthTextView);
+        TextView physicalResistanceTextView = findViewById(R.id.physicalResistanceTextView);
+        TextView magicalResistanceTextView = findViewById(R.id.magicalResistanceTextView);
+        TextView victoriesTextView = findViewById(R.id.victoriesTextView);
+        TextView totalBattlesTextView = findViewById(R.id.totalBattlesTextView);
+
+
+        // set text in layout
+
+        // make enum text lowercase with capitalised first letter
+        String attackTypeText = adventurer.attackType.toString();
+        attackTypeText = attackTypeText.substring(0, 1).toUpperCase() + attackTypeText.substring(1).toLowerCase();
+
+        adventurerNameTextView.setText(adventurer.adventurerName);
+        classTextView.setText(adventurer.className);
+        attackTypeTextView.setText(attackTypeText);
+        experienceTextView.setText(Integer.toString(adventurer.experience));
+        attackTextView.setText(getString(R.string.attack, adventurer.combatStats.attack));
+        maxHealthTextView.setText(getString(R.string.max_health, adventurer.combatStats.maxHealth));
+        physicalResistanceTextView.setText(getString(R.string.physical_resistance, adventurer.combatStats.physicalResistance));
+        magicalResistanceTextView.setText(getString(R.string.magical_resistance, adventurer.combatStats.magicalResistance));
+        victoriesTextView.setText(getString(R.string.victories, adventurer.records.victories));
+        totalBattlesTextView.setText(getString(R.string.total_battles, adventurer.records.battles));
+
+
+
     }
 }

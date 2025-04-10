@@ -13,6 +13,7 @@ public abstract class Adventurer {
     public CombatStatistics combatStats;
     public Records records;
     public int specialCooldown;
+    public int spriteDrawableId;
 
     public int attack()
     {
@@ -37,5 +38,10 @@ public abstract class Adventurer {
 
         //reduce current health by attack
         this.combatStats.currentHealth -= attack;
+    }
+
+    public int getSpriteDrawableId()
+    {
+        return this.spriteDrawableId;
     }
 }

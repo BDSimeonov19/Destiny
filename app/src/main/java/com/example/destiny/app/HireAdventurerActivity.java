@@ -1,6 +1,7 @@
 package com.example.destiny.app;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -51,7 +52,15 @@ public class HireAdventurerActivity extends AppCompatActivity {
         RadioButton classTypeRadio = findViewById(classTypeRadioGroup.getCheckedRadioButtonId());
         classTypeRadio.getText();
 
-        Guild.getInstance().createAdventurer(adventurerNameInput.getText().toString(), classTypeRadio.getText().toString());
-        finish();
+        if(TextUtils.isEmpty(adventurerNameInput.getText()))
+        {
+            adventurerNameInput.setError("Adventurer name is required");
+        }
+        else
+        {
+            Guild.getInstance().createAdventurer(adventurerNameInput.getText().toString(), classTypeRadio.getText().toString());
+            finish();
+        }
+
     }
 }
