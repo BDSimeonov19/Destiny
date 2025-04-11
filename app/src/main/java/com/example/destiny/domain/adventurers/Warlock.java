@@ -24,7 +24,7 @@ public class Warlock extends Adventurer{
         // TODO: add records
         super.records = new Records(0, 0);
         super.specialCooldown = 0;
-        super.spriteDrawableId = R.drawable.warlock_sprite;
+        super.spriteDrawableId = R.drawable.sprite_warlock;
     }
 
     public int specialAttack() {

@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Destiny</string>
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="experience">Experience: %1$d</string>
     <string name="attack">Attack\n%1$d</string>
     <string name="magical_resistance">Magical Resistance\n%1$d</string>
     <string name="physical_resistance">Physical Resistance\n%1$d</string>

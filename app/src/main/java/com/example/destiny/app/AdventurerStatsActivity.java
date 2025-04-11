@@ -45,7 +45,6 @@ public class AdventurerStatsActivity extends AppCompatActivity {
 
         // get intent extras and retrieve adventurer with id
         UUID adventurerId = UUID.fromString(getIntent().getStringExtra("adventurerId"));
-        System.out.println(adventurerId);
         Adventurer adventurer = Guild.getInstance().getAdventurerById(adventurerId);
 
         // get relevant views in layout
@@ -70,7 +69,7 @@ public class AdventurerStatsActivity extends AppCompatActivity {
         adventurerNameTextView.setText(adventurer.adventurerName);
         classTextView.setText(adventurer.className);
         attackTypeTextView.setText(attackTypeText);
-        experienceTextView.setText(Integer.toString(adventurer.experience));
+        experienceTextView.setText(getString(R.string.experience, adventurer.experience));
         attackTextView.setText(getString(R.string.attack, adventurer.combatStats.attack));
         maxHealthTextView.setText(getString(R.string.max_health, adventurer.combatStats.maxHealth));
         physicalResistanceTextView.setText(getString(R.string.physical_resistance, adventurer.combatStats.physicalResistance));

@@ -46,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
         }
         );
 
+        bottomNavigationView.setItemIconTintList(null);
+
     }
     // method that determines the selected menu item and
     // replacing the active fragment accordingly in fragmentContainerView

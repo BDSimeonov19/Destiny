@@ -24,7 +24,7 @@ public class Berserker extends Adventurer{
         // TODO: add records
         super.records = new Records(0, 0);
         super.specialCooldown = 0;
-        super.spriteDrawableId = R.drawable.berserker_sprite;
+        super.spriteDrawableId = R.drawable.sprite_berserker;
     }
 
     public int specialAttack() {

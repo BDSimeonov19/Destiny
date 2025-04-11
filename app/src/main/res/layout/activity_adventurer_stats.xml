@@ -24,7 +24,7 @@
             android:layout_height="48dp"
             app:layout_column="0"
             app:layout_row="1"
-            app:srcCompat="@drawable/assassin_sprite" />
+            app:srcCompat="@drawable/stat_phys_res" />
 
         <ImageView
             android:id="@+id/attackImageView"
@@ -32,15 +32,15 @@
             android:layout_height="48dp"
             app:layout_column="0"
             app:layout_row="0"
-            app:srcCompat="@drawable/assassin_sprite" />
+            app:srcCompat="@drawable/stat_attack" />
 
         <ImageView
-            android:id="@+id/defenseImageView"
+            android:id="@+id/maxHealthImageView"
             android:layout_width="48dp"
             android:layout_height="48dp"
             app:layout_column="2"
             app:layout_row="0"
-            app:srcCompat="@drawable/assassin_sprite" />
+            app:srcCompat="@drawable/stat_health" />
 
         <ImageView
             android:id="@+id/magicalResistanceImageView"
@@ -48,7 +48,7 @@
             android:layout_height="48dp"
             app:layout_column="2"
             app:layout_row="1"
-            app:srcCompat="@drawable/assassin_sprite" />
+            app:srcCompat="@drawable/stat_magic_res" />
 
         <TextView
             android:id="@+id/attackTextView"
