@@ -1,8 +1,10 @@
 package com.example.destiny.app;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -31,7 +33,7 @@ public class AdventurerStatsActivity extends AppCompatActivity {
         });
 
         // make back button event listener
-        Button backButton = findViewById(R.id.backButton);
+        ImageButton backButton = findViewById(R.id.backButton);
         backButton.setOnClickListener(
             new View.OnClickListener()
             {

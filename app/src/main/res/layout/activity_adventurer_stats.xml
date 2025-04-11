@@ -173,14 +173,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/attackTypeTextView" />
 
-    <Button
-        android:id="@+id/backButton"
-        android:layout_width="84dp"
-        android:layout_height="41dp"
-        android:text="Back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.gridlayout.widget.GridLayout
         android:layout_width="398dp"
         android:layout_height="144dp"
@@ -228,5 +220,18 @@
             app:layout_row="1"
             app:srcCompat="@drawable/stat_wins" />
     </androidx.gridlayout.widget.GridLayout>
+
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_arrow" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
