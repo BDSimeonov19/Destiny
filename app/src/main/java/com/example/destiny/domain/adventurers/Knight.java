@@ -25,6 +25,7 @@ public class Knight extends Adventurer{
         super.records = new Records(0, 0);
         super.specialCooldown = 0;
         super.spriteDrawableId = R.drawable.sprite_knight;
+        super.iconDrawableId = R.drawable.icon_knight;
     }
 
     public int specialAttack() {

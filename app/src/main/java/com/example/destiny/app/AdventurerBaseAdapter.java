@@ -51,7 +51,7 @@ public class AdventurerBaseAdapter extends BaseAdapter {
 
         adventurerNameTextView.setText(this.adventurers.get(position).adventurerName);
         adventurerClassTextView.setText(this.adventurers.get(position).className);
-        adventuerImageView.setImageResource(this.adventurers.get(position).getSpriteDrawableId());
+        adventuerImageView.setImageResource(this.adventurers.get(position).getIconDrawableId());
         return convertView;
     }
 }

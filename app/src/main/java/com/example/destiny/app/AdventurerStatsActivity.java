@@ -56,6 +56,7 @@ public class AdventurerStatsActivity extends AppCompatActivity {
         TextView maxHealthTextView = findViewById(R.id.maxHealthTextView);
         TextView physicalResistanceTextView = findViewById(R.id.physicalResistanceTextView);
         TextView magicalResistanceTextView = findViewById(R.id.magicalResistanceTextView);
+        TextView critTextView = findViewById(R.id.critTextView);
         TextView victoriesTextView = findViewById(R.id.victoriesTextView);
         TextView totalBattlesTextView = findViewById(R.id.totalBattlesTextView);
 
@@ -67,13 +68,14 @@ public class AdventurerStatsActivity extends AppCompatActivity {
         attackTypeText = attackTypeText.substring(0, 1).toUpperCase() + attackTypeText.substring(1).toLowerCase();
 
         adventurerNameTextView.setText(adventurer.adventurerName);
-        classTextView.setText(adventurer.className);
-        attackTypeTextView.setText(attackTypeText);
+        classTextView.setText(getString(R.string.class_name, adventurer.className));
+        attackTypeTextView.setText(getString(R.string.attack_type, attackTypeText));
         experienceTextView.setText(getString(R.string.experience, adventurer.experience));
         attackTextView.setText(getString(R.string.attack, adventurer.combatStats.attack));
         maxHealthTextView.setText(getString(R.string.max_health, adventurer.combatStats.maxHealth));
         physicalResistanceTextView.setText(getString(R.string.physical_resistance, adventurer.combatStats.physicalResistance));
         magicalResistanceTextView.setText(getString(R.string.magical_resistance, adventurer.combatStats.magicalResistance));
+        critTextView.setText(getString(R.string.crit_rate, (int) (adventurer.combatStats.critRate*100)));
         victoriesTextView.setText(getString(R.string.victories, adventurer.records.victories));
         totalBattlesTextView.setText(getString(R.string.total_battles, adventurer.records.battles));
 

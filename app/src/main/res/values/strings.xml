@@ -1,12 +1,15 @@
 <resources>
     <string name="app_name">Destiny</string>
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="class_name">Class: %1$s</string>
+    <string name="attack_type">Attack Type: %1$s</string>
     <string name="experience">Experience: %1$d</string>
-    <string name="attack">Attack\n%1$d</string>
-    <string name="magical_resistance">Magical Resistance\n%1$d</string>
-    <string name="physical_resistance">Physical Resistance\n%1$d</string>
-    <string name="max_health">Max health\n%1$d</string>
-    <string name="victories">Victories: %1$d</string>
-    <string name="total_battles">Total Battles: %1$d</string>
+    <string name="attack">Attack: \t%1$d</string>
+    <string name="magical_resistance">Magical Resistance: \t%1$d</string>
+    <string name="physical_resistance">Physical Resistance: \t%1$d</string>
+    <string name="max_health">Max health: \t%1$d</string>
+    <string name="crit_rate">Crit Rate: \t%1$d%%</string>
+    <string name="victories">Victories: \t%1$d</string>
+    <string name="total_battles">Total Battles: \t%1$d</string>
 
 </resources>

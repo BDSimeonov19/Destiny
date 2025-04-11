@@ -32,8 +32,8 @@
 
     <ListView
         android:id="@+id/adventurersList"
-        android:layout_width="409dp"
-        android:layout_height="261dp"
+        android:layout_width="412dp"
+        android:layout_height="613dp"
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hireButton" />

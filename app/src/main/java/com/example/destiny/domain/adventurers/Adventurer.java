@@ -13,7 +13,8 @@ public abstract class Adventurer {
     public CombatStatistics combatStats;
     public Records records;
     public int specialCooldown;
-    public int spriteDrawableId;
+    protected int spriteDrawableId;
+    protected int iconDrawableId;
 
     public int attack()
     {
@@ -44,4 +45,6 @@ public abstract class Adventurer {
     {
         return this.spriteDrawableId;
     }
+
+    public int getIconDrawableId() { return this.iconDrawableId; }
 }

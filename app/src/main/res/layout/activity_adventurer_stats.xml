@@ -10,81 +10,114 @@
     <androidx.gridlayout.widget.GridLayout
         android:id="@+id/statsGrid"
         android:layout_width="0dp"
-        android:layout_height="100dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
-        app:columnCount="4"
+        app:columnCount="2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/experienceTextView">
 
-        <ImageView
-            android:id="@+id/physicalResistanceImageView"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            app:layout_column="0"
-            app:layout_row="1"
-            app:srcCompat="@drawable/stat_phys_res" />
+        <TextView
+            android:id="@+id/physicalResistanceTextView"
+            android:layout_width="248dp"
+            android:layout_height="60dp"
+            android:paddingTop="17dp"
+            android:text="@string/physical_resistance"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_column="1"
+            app:layout_row="1" />
+
+        <TextView
+            android:id="@+id/magicalResistanceTextView"
+            android:layout_width="248dp"
+            android:layout_height="60dp"
+            android:paddingTop="17dp"
+            android:text="@string/magical_resistance"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_column="1"
+            app:layout_row="2" />
+
+        <TextView
+            android:id="@+id/maxHealthTextView"
+            android:layout_width="248dp"
+            android:layout_height="60dp"
+            android:paddingTop="17dp"
+            android:text="@string/max_health"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_column="1"
+            app:layout_row="3" />
+
+        <TextView
+            android:id="@+id/critTextView"
+            android:layout_width="248dp"
+            android:layout_height="60dp"
+            android:paddingTop="17dp"
+            android:text="@string/crit_rate"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_column="1"
+            app:layout_row="4" />
 
         <ImageView
             android:id="@+id/attackImageView"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="130dp"
+            android:layout_height="60dp"
             app:layout_column="0"
             app:layout_row="0"
             app:srcCompat="@drawable/stat_attack" />
 
         <ImageView
+            android:id="@+id/physResImageView"
+            android:layout_width="130dp"
+            android:layout_height="60dp"
+            app:layout_column="0"
+            app:layout_row="1"
+            app:srcCompat="@drawable/stat_phys_res" />
+
+        <ImageView
+            android:id="@+id/magicResImageView"
+            android:layout_width="130dp"
+            android:layout_height="60dp"
+            app:layout_column="0"
+            app:layout_row="2"
+            app:srcCompat="@drawable/stat_magic_res" />
+
+        <ImageView
             android:id="@+id/maxHealthImageView"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            app:layout_column="2"
-            app:layout_row="0"
+            android:layout_width="130dp"
+            android:layout_height="60dp"
+            app:layout_column="0"
+            app:layout_row="3"
             app:srcCompat="@drawable/stat_health" />
 
         <ImageView
-            android:id="@+id/magicalResistanceImageView"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            app:layout_column="2"
-            app:layout_row="1"
-            app:srcCompat="@drawable/stat_magic_res" />
+            android:id="@+id/critImageView"
+            android:layout_width="130dp"
+            android:layout_height="60dp"
+            app:layout_column="0"
+            app:layout_row="4"
+            app:srcCompat="@drawable/stat_crit" />
 
         <TextView
             android:id="@+id/attackTextView"
-            android:layout_width="125dp"
-            android:layout_height="48dp"
-            android:text="Attack\n12"
+            android:layout_width="248dp"
+            android:layout_height="60dp"
+            android:paddingTop="17dp"
+            android:text="@string/attack"
             android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_column="1"
             app:layout_row="0" />
-
-        <TextView
-            android:id="@+id/physicalResistanceTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:text="Physical Resistance\n12"
-            android:textAlignment="center"
-            app:layout_column="1"
-            app:layout_row="1" />
-
-        <TextView
-            android:id="@+id/maxHealthTextView"
-            android:layout_width="125dp"
-            android:layout_height="48dp"
-            android:text="Max Health\n12"
-            android:textAlignment="center"
-            app:layout_column="3"
-            app:layout_row="0" />
-
-        <TextView
-            android:id="@+id/magicalResistanceTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:text="Magical Resistance\n12"
-            android:textAlignment="center"
-            app:layout_column="3"
-            app:layout_row="1" />
 
     </androidx.gridlayout.widget.GridLayout>
 
@@ -92,7 +125,8 @@
         android:id="@+id/adventurerNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="45dp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -101,43 +135,29 @@
         android:id="@+id/classTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/adventurerNameTextView" />
 
     <View
         android:id="@+id/horizontalLine"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_width="350dp"
+        android:layout_height="2dp"
         android:layout_marginTop="32dp"
+        android:background="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/statsGrid" />
-
-    <TextView
-        android:id="@+id/victoriesTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/horizontalLine" />
-
-    <TextView
-        android:id="@+id/totalBattlesTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/victoriesTextView" />
 
     <TextView
         android:id="@+id/attackTypeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/classTextView" />
@@ -147,6 +167,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
@@ -159,5 +180,53 @@
         android:text="Back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.gridlayout.widget.GridLayout
+        android:layout_width="398dp"
+        android:layout_height="144dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        app:columnCount="2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/horizontalLine">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="130dp"
+            android:layout_height="60dp"
+            app:layout_column="0"
+            app:layout_row="0"
+            app:srcCompat="@drawable/stat_total_battles" />
+
+        <TextView
+            android:id="@+id/victoriesTextView"
+            android:layout_width="248dp"
+            android:layout_height="60dp"
+            android:paddingTop="17dp"
+            android:text="@string/total_battles"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/totalBattlesTextView"
+            android:layout_width="248dp"
+            android:layout_height="60dp"
+            android:paddingTop="17dp"
+            android:text="@string/victories"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_column="1"
+            app:layout_row="1" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="130dp"
+            android:layout_height="60dp"
+            app:layout_column="0"
+            app:layout_row="1"
+            app:srcCompat="@drawable/stat_wins" />
+    </androidx.gridlayout.widget.GridLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

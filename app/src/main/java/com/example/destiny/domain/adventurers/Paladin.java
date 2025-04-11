@@ -25,6 +25,7 @@ public class Paladin extends Adventurer{
         super.records = new Records(0, 0);
         super.specialCooldown = 0;
         super.spriteDrawableId = R.drawable.sprite_paladin;
+        super.iconDrawableId = R.drawable.icon_paladin;
     }
 
     public int specialAttack() {

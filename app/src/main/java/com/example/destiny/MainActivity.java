@@ -57,15 +57,15 @@ public class MainActivity extends AppCompatActivity {
 
         int id = item.getItemId();
 
-        if(id == R.id.trainButton)
+        if (id == R.id.trainButton)
         {
             selectedFragment = new TrainFragment();
         }
-        else if(id == R.id.battleButton)
+        else if (id == R.id.battleButton)
         {
             selectedFragment = new BattleFragment();
         }
-        else if(id == R.id.guildButton)
+        else if (id == R.id.guildButton)
         {
             selectedFragment = new GuildFragment();
         }
