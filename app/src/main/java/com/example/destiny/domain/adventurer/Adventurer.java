@@ -1,4 +1,4 @@
-package com.example.destiny.domain.adventurers;
+package com.example.destiny.domain.adventurer;
 
 import com.example.destiny.domain.Records;
 
@@ -18,7 +18,7 @@ public abstract class Adventurer {
 
     public int attack()
     {
-        int attackValue = this.combatStats.attack;;
+        int attackValue = this.combatStats.attack;
 
         // if critical hit lands, increase attack by crit damage
         if(Math.random() < this.combatStats.critRate)

@@ -1,9 +1,7 @@
 package com.example.destiny.app;
 
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -14,8 +12,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.destiny.R;
-import com.example.destiny.domain.adventurers.Adventurer;
-import com.example.destiny.domain.areas.Guild;
+import com.example.destiny.domain.adventurer.Adventurer;
+import com.example.destiny.domain.area.Guild;
 
 import java.util.UUID;
 

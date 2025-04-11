@@ -1,12 +1,12 @@
-package com.example.destiny.domain.areas;
+package com.example.destiny.domain.area;
 
-import com.example.destiny.domain.adventurers.Adventurer;
-import com.example.destiny.domain.adventurers.Assassin;
-import com.example.destiny.domain.adventurers.Berserker;
-import com.example.destiny.domain.adventurers.Knight;
-import com.example.destiny.domain.adventurers.Mage;
-import com.example.destiny.domain.adventurers.Paladin;
-import com.example.destiny.domain.adventurers.Warlock;
+import com.example.destiny.domain.adventurer.Adventurer;
+import com.example.destiny.domain.adventurer.Assassin;
+import com.example.destiny.domain.adventurer.Berserker;
+import com.example.destiny.domain.adventurer.Knight;
+import com.example.destiny.domain.adventurer.Mage;
+import com.example.destiny.domain.adventurer.Paladin;
+import com.example.destiny.domain.adventurer.Warlock;
 
 import java.util.ArrayList;
 

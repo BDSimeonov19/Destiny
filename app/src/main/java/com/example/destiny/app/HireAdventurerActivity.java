@@ -15,7 +15,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.destiny.R;
-import com.example.destiny.domain.areas.Guild;
+import com.example.destiny.domain.area.Guild;
 
 public class HireAdventurerActivity extends AppCompatActivity {
 

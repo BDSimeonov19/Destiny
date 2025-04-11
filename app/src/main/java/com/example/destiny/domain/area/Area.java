@@ -1,6 +1,6 @@
-package com.example.destiny.domain.areas;
+package com.example.destiny.domain.area;
 
-import com.example.destiny.domain.adventurers.Adventurer;
+import com.example.destiny.domain.adventurer.Adventurer;
 
 import java.util.HashMap;
 import java.util.UUID;

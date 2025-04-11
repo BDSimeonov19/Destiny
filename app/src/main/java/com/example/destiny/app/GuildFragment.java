@@ -1,6 +1,5 @@
 package com.example.destiny.app;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -10,18 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.example.destiny.MainActivity;
 import com.example.destiny.R;
-import com.example.destiny.domain.adventurers.Adventurer;
-import com.example.destiny.domain.areas.Guild;
+import com.example.destiny.domain.adventurer.Adventurer;
+import com.example.destiny.domain.area.Guild;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.stream.Collectors;
 
 public class GuildFragment extends Fragment {
     private ListView adventurersListView;

@@ -1,10 +1,10 @@
-package com.example.destiny.domain.adventurers;
+package com.example.destiny.domain.adventurer;
 
 import com.example.destiny.R;
 import com.example.destiny.domain.Records;
 
-public class Berserker extends Adventurer{
-    public Berserker(String adventurerName)
+public class Knight extends Adventurer{
+    public Knight(String adventurerName)
     {
         int attack = 5;
         int physicalResistance = 2;
@@ -19,13 +19,13 @@ public class Berserker extends Adventurer{
         super.id = java.util.UUID.randomUUID();
         super.adventurerName = adventurerName;
         super.attackType = AttackType.PHYSICAL;
-        super.className = "Berserker";
+        super.className = "Knight";
         super.experience = 0;
         // TODO: add records
         super.records = new Records(0, 0);
         super.specialCooldown = 0;
-        super.spriteDrawableId = R.drawable.sprite_berserker;
-        super.iconDrawableId = R.drawable.icon_berserker;
+        super.spriteDrawableId = R.drawable.sprite_knight;
+        super.iconDrawableId = R.drawable.icon_knight;
     }
 
     public int specialAttack() {

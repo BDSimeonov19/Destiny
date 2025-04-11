@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 
 import com.example.destiny.R;
-import com.example.destiny.domain.adventurers.Adventurer;
+import com.example.destiny.domain.adventurer.Adventurer;
 
 import java.util.ArrayList;
 
