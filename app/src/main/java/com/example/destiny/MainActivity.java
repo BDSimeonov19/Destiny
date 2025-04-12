@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.destiny.app.BattleFragment;
 import com.example.destiny.app.GuildFragment;
-import com.example.destiny.app.TrainFragment;
+import com.example.destiny.app.TrainingFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (id == R.id.trainButton)
         {
-            selectedFragment = new TrainFragment();
+            selectedFragment = new TrainingFragment();
         }
         else if (id == R.id.battleButton)
         {

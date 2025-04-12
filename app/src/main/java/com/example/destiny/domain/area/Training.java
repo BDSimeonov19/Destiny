@@ -1,14 +1,14 @@
 package com.example.destiny.domain.area;
 
 // this class is a singleton
-public class TrainingGround extends Area{
+public class Training extends Area{
 
-    private static final TrainingGround instance = new TrainingGround();
+    private static final Training instance = new Training();
 
     // private constructor as to forbid creating instances
-    private TrainingGround(){}
+    private Training(){}
 
-    public static TrainingGround getInstance() {
+    public static Training getInstance() {
         return instance;
     }
 

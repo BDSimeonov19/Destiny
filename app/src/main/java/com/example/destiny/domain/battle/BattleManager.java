@@ -13,14 +13,14 @@ public class BattleManager {
     private String currentTextOutput;
     private BattleState battleState;
 
-    BattleManager(Adventurer adventurer, Enemy enemy)
+    public BattleManager(Adventurer adventurer, Enemy enemy)
     {
         this.adventurer = adventurer;
         this.enemy = enemy;
         this.currentTextOutput = "";
     }
 
-    public void handleFullTurn(boolean attackIsSpecial)
+    public void handleFullTurn(int attackIsSpecial)
     {
         // execute player turn and take battle state
         this.handlePlayerTurn(attackIsSpecial);
@@ -54,10 +54,10 @@ public class BattleManager {
         }
     }
 
-    private void handlePlayerTurn(boolean attackIsSpecial)
+    private void handlePlayerTurn(int attackIsSpecial)
     {
         currentTextOutput = "";
-        if(attackIsSpecial)
+        if(attackIsSpecial == 1)
         {
             //TODO:add special attacks and consider special effects
         }
@@ -82,7 +82,7 @@ public class BattleManager {
         // if adventurer died declare adventurer has fallen
         if(enemy.combatStats.currentHealth <= 0)
         {
-            currentTextOutput += enemy.name + " has fallen!\n";
+            currentTextOutput += enemy.monsterType + " has fallen!\n";
             this.battleState = BattleState.VICTORY;
             return;
         }
@@ -105,7 +105,7 @@ public class BattleManager {
 
         int damage = adventurer.defend(enemyAttack, enemy.attackType);
 
-        currentTextOutput += enemy.name + " dealt " + damage + "damage\n";
+        currentTextOutput += enemy.monsterType + " dealt " + damage + " damage\n";
 
         // if adventurer died declare adventurer has fallen
         if(adventurer.combatStats.currentHealth <= 0)

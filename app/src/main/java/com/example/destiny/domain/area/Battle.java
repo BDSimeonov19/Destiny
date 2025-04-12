@@ -6,16 +6,16 @@ import com.example.destiny.data.adventurer.Adventurer;
 import java.util.ArrayList;
 
 // this class is a singleton
-public class BattleArena extends Area{
+public class Battle extends Area{
 
-    private static final BattleArena instance = new BattleArena();
+    private static final Battle instance = new Battle();
 
     private BattleManager battleManager;
 
     // private constructor as to forbid creating instances
-    private BattleArena(){}
+    private Battle(){}
 
-    public static BattleArena getInstance() {
+    public static Battle getInstance() {
         return instance;
     }
 

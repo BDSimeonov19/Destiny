@@ -4,7 +4,6 @@ import com.example.destiny.data.adventurer.AttackType;
 import com.example.destiny.data.adventurer.CombatStatistics;
 
 public abstract class Enemy {
-    public String name;
     public String monsterType;
     public AttackType attackType;
     public CombatStatistics combatStats;
