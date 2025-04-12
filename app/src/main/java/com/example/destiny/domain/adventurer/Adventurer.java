@@ -28,7 +28,7 @@ public abstract class Adventurer {
         return attackValue;
     }
     public abstract int specialAttack();
-    public void defend(int attack, AttackType attackType) {
+    public int defend(int attack, AttackType attackType) {
         // reduce attack by defence for specific type
         attack = attackType == AttackType.PHYSICAL ?
                 attack - combatStats.physicalResistance :
@@ -39,6 +39,7 @@ public abstract class Adventurer {
 
         //reduce current health by attack
         this.combatStats.currentHealth -= attack;
+        return attack;
     }
 
     public int getSpriteDrawableId()

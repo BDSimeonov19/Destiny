@@ -8,7 +8,7 @@ public abstract class Enemy {
     public String monsterType;
     public AttackType attackType;
     public CombatStatistics combatStats;
-    private int spriteDrawableId;
+    protected int spriteDrawableId;
 
     public int attack()
     {
@@ -22,7 +22,7 @@ public abstract class Enemy {
         return attackValue;
     }
 
-    public void defend(int attack, AttackType attackType) {
+    public int defend(int attack, AttackType attackType) {
         // reduce attack by defence for specific type
         attack = attackType == AttackType.PHYSICAL ?
                 attack - combatStats.physicalResistance :
@@ -33,6 +33,8 @@ public abstract class Enemy {
 
         //reduce current health by attack
         this.combatStats.currentHealth -= attack;
+
+        return attack;
     }
 
     public int getSpriteDrawableId() { return this.spriteDrawableId; }
