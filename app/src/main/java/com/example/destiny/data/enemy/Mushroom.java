@@ -1,8 +1,8 @@
-package com.example.destiny.domain.enemy;
+package com.example.destiny.data.enemy;
 
 import com.example.destiny.R;
-import com.example.destiny.domain.adventurer.AttackType;
-import com.example.destiny.domain.adventurer.CombatStatistics;
+import com.example.destiny.data.adventurer.AttackType;
+import com.example.destiny.data.adventurer.CombatStatistics;
 
 public class Mushroom extends Enemy{
     public Mushroom()

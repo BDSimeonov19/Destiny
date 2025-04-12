@@ -1,8 +1,9 @@
-package com.example.destiny.domain;
+package com.example.destiny.domain.battle;
 
-import com.example.destiny.domain.adventurer.Adventurer;
-import com.example.destiny.domain.enemy.Enemy;
+import com.example.destiny.data.adventurer.Adventurer;
+import com.example.destiny.data.enemy.Enemy;
 
+// this class is used to transfer data from the battle manager to the UI
 public class BattleResult {
     public Adventurer adventurer;
     public Enemy enemy;

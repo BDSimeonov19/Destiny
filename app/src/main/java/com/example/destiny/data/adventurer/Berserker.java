@@ -1,4 +1,4 @@
-package com.example.destiny.domain.adventurer;
+package com.example.destiny.data.adventurer;
 
 import com.example.destiny.R;
 import com.example.destiny.domain.Records;

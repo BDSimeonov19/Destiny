@@ -1,10 +1,10 @@
-package com.example.destiny.domain.adventurer;
+package com.example.destiny.data.adventurer;
 
 import com.example.destiny.R;
 import com.example.destiny.domain.Records;
 
-public class Mage extends Adventurer{
-    public Mage(String adventurerName)
+public class Warlock extends Adventurer{
+    public Warlock(String adventurerName)
     {
         int attack = 5;
         int physicalResistance = 2;
@@ -19,13 +19,13 @@ public class Mage extends Adventurer{
         super.id = java.util.UUID.randomUUID();
         super.adventurerName = adventurerName;
         super.attackType = AttackType.MAGICAL;
-        super.className = "Mage";
+        super.className = "Warlock";
         super.experience = 0;
         // TODO: add records
         super.records = new Records(0, 0);
         super.specialCooldown = 0;
-        super.spriteDrawableId = R.drawable.sprite_mage;
-        super.iconDrawableId = R.drawable.icon_mage;
+        super.spriteDrawableId = R.drawable.sprite_warlock;
+        super.iconDrawableId = R.drawable.icon_warlock;
     }
 
     public int specialAttack() {

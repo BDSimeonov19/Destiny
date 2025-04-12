@@ -1,8 +1,8 @@
-package com.example.destiny.domain.enemy;
+package com.example.destiny.data.enemy;
 
 import com.example.destiny.R;
-import com.example.destiny.domain.adventurer.AttackType;
-import com.example.destiny.domain.adventurer.CombatStatistics;
+import com.example.destiny.data.adventurer.AttackType;
+import com.example.destiny.data.adventurer.CombatStatistics;
 
 public class Skeleton extends Enemy{
     public Skeleton()
@@ -18,6 +18,7 @@ public class Skeleton extends Enemy{
         super.combatStats = new CombatStatistics(attack, physicalResistance, magicalResistance, maxHealth, currentHealth, critRate, critDamage);
 
         super.attackType = AttackType.PHYSICAL;
+        super.monsterType = "Skeleton";
         super.spriteDrawableId = R.drawable.enemy_skeleton;
     }
 }

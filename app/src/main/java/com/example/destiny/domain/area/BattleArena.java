@@ -1,7 +1,7 @@
 package com.example.destiny.domain.area;
 
-import com.example.destiny.domain.BattleManager;
-import com.example.destiny.domain.adventurer.Adventurer;
+import com.example.destiny.domain.battle.BattleManager;
+import com.example.destiny.data.adventurer.Adventurer;
 
 import java.util.ArrayList;
 
@@ -29,13 +29,15 @@ public class BattleArena extends Area{
 
         ArrayList<Adventurer> adventurersList = new ArrayList<>(super.adventurers.values());
         // TODO: add enemy random creation, add activity for battle, check if the live data works
-        // TODO: rethink how the battlearena area handles the logic here :D
         // TODO: basically tomorrow focus on the activity and hooking it up to a visual
         // TODO: also don't forget that you need to handle EXP and saving good luck!
         //this.battleManager = new BattleManager(adventurersList.get(0), );
 
     }
-    public void listAdventurers() {
 
-    }
+    // TODO: create random enemy if not specified
+    public void createEnemy() {}
+    // TODO: battle setup which would be called to prepare the adventurer, prepare the enemy and
+    // TODO: then the UI can call the battle manager with the info here seems good :D, something like
+    // TODO: the current battle but with the functionalities i've  described here
 }

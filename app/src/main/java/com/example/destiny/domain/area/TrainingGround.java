@@ -16,8 +16,4 @@ public class TrainingGround extends Area{
     {
 
     }
-
-    public void listAdventurers() {
-
-    }
 }

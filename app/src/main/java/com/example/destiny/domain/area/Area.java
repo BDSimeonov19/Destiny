@@ -1,7 +1,8 @@
 package com.example.destiny.domain.area;
 
-import com.example.destiny.domain.adventurer.Adventurer;
+import com.example.destiny.data.adventurer.Adventurer;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -21,7 +22,11 @@ public abstract class Area {
     public Adventurer getAdventurerById(UUID id) {
         return this.adventurers.get(id);
     }
-    public abstract void listAdventurers();
+    public ArrayList<Adventurer> getAllAdventurers()
+    {
+        return new ArrayList<>(this.adventurers.values());
+    }
+
 
     public static void moveAdventurer(UUID id, Area currentLocation, Area newLocation)
     {

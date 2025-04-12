@@ -1,10 +1,13 @@
-package com.example.destiny.domain;
+package com.example.destiny.domain.battle;
 
-import com.example.destiny.domain.adventurer.Adventurer;
-import com.example.destiny.domain.enemy.Enemy;
+import androidx.lifecycle.MutableLiveData;
+
+import com.example.destiny.data.adventurer.Adventurer;
+import com.example.destiny.data.enemy.Enemy;
 
 public class BattleManager {
-    private final BattleViewModel viewModel;
+    // live data so the UI can be updated throughout the execution of battle
+    public MutableLiveData<BattleResult> battleResult = new MutableLiveData<>();
     private Enemy enemy;
     private Adventurer adventurer;
     private String currentTextOutput;
@@ -15,45 +18,48 @@ public class BattleManager {
         this.adventurer = adventurer;
         this.enemy = enemy;
         this.currentTextOutput = "";
-        this.viewModel = new BattleViewModel();
     }
 
-    public void executeFullTurn(boolean attackIsSpecial) {
+    public void handleFullTurn(boolean attackIsSpecial)
+    {
         // execute player turn and take battle state
-        this.battleState = this.playerTurn(attackIsSpecial);
+        this.handlePlayerTurn(attackIsSpecial);
 
-        // update battle view model after player turn
-        this.viewModel.updateBattleResult(
+        // update battle result after player turn
+        this.battleResult.setValue(
                 new BattleResult(
                         this.adventurer,
                         this.enemy,
                         this.currentTextOutput,
-                        this.battleState)
+                        this.battleState
+                )
         );
 
+        // TODO: add delay between turns
         // if player hasn't won, continue to enemy turn
         if (this.battleState != BattleState.VICTORY)
         {
             // execute enemy turn and take battle state
-            this.battleState = this.enemyTurn();
+            this.handleEnemyTurn();
 
-            // update battle view model after enemy turn
-            this.viewModel.updateBattleResult(
+            // update battle result after enemy turn
+            this.battleResult.setValue(
                     new BattleResult(
                             this.adventurer,
                             this.enemy,
                             this.currentTextOutput,
-                            this.battleState)
+                            this.battleState
+                    )
             );
         }
     }
 
-    public BattleState playerTurn(boolean attackIsSpecial)
+    private void handlePlayerTurn(boolean attackIsSpecial)
     {
         currentTextOutput = "";
         if(attackIsSpecial)
         {
-
+            //TODO:add special attacks and consider special effects
         }
         else
         {
@@ -77,13 +83,14 @@ public class BattleManager {
         if(enemy.combatStats.currentHealth <= 0)
         {
             currentTextOutput += enemy.name + " has fallen!\n";
-            return BattleState.VICTORY;
+            this.battleState = BattleState.VICTORY;
+            return;
         }
 
-        return BattleState.ONGOING;
+        this.battleState = BattleState.ONGOING;
     }
 
-    public BattleState enemyTurn()
+    private void handleEnemyTurn()
     {
         currentTextOutput = "";
 
@@ -104,9 +111,10 @@ public class BattleManager {
         if(adventurer.combatStats.currentHealth <= 0)
         {
             currentTextOutput += adventurer.adventurerName + " has fallen!\n";
-            return BattleState.DEFEAT;
+            this.battleState = BattleState.DEFEAT;
+            return;
         }
 
-        return BattleState.ONGOING;
+        this.battleState = BattleState.ONGOING;
     }
 }

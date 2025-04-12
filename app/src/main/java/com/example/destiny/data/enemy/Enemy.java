@@ -1,20 +1,14 @@
-package com.example.destiny.domain.adventurer;
+package com.example.destiny.data.enemy;
 
-import com.example.destiny.domain.Records;
+import com.example.destiny.data.adventurer.AttackType;
+import com.example.destiny.data.adventurer.CombatStatistics;
 
-import java.util.UUID;
-
-public abstract class Adventurer {
-    public UUID id;
-    public String adventurerName;
+public abstract class Enemy {
+    public String name;
+    public String monsterType;
     public AttackType attackType;
-    public String className;
-    public int experience;
     public CombatStatistics combatStats;
-    public Records records;
-    public int specialCooldown;
     protected int spriteDrawableId;
-    protected int iconDrawableId;
 
     public int attack()
     {
@@ -27,7 +21,7 @@ public abstract class Adventurer {
         }
         return attackValue;
     }
-    public abstract int specialAttack();
+
     public int defend(int attack, AttackType attackType) {
         // reduce attack by defence for specific type
         attack = attackType == AttackType.PHYSICAL ?
@@ -39,13 +33,9 @@ public abstract class Adventurer {
 
         //reduce current health by attack
         this.combatStats.currentHealth -= attack;
+
         return attack;
     }
 
-    public int getSpriteDrawableId()
-    {
-        return this.spriteDrawableId;
-    }
-
-    public int getIconDrawableId() { return this.iconDrawableId; }
+    public int getSpriteDrawableId() { return this.spriteDrawableId; }
 }

@@ -1,12 +1,12 @@
 package com.example.destiny.domain.area;
 
-import com.example.destiny.domain.adventurer.Adventurer;
-import com.example.destiny.domain.adventurer.Assassin;
-import com.example.destiny.domain.adventurer.Berserker;
-import com.example.destiny.domain.adventurer.Knight;
-import com.example.destiny.domain.adventurer.Mage;
-import com.example.destiny.domain.adventurer.Paladin;
-import com.example.destiny.domain.adventurer.Warlock;
+import com.example.destiny.data.adventurer.Adventurer;
+import com.example.destiny.data.adventurer.Assassin;
+import com.example.destiny.data.adventurer.Berserker;
+import com.example.destiny.data.adventurer.Knight;
+import com.example.destiny.data.adventurer.Mage;
+import com.example.destiny.data.adventurer.Paladin;
+import com.example.destiny.data.adventurer.Warlock;
 
 import java.util.ArrayList;
 
@@ -58,8 +58,5 @@ public class Guild extends Area {
     public ArrayList<Adventurer> getAllAdventurers()
     {
         return new ArrayList<Adventurer>(this.adventurers.values());
-    }
-    public void listAdventurers() {
-
     }
 }

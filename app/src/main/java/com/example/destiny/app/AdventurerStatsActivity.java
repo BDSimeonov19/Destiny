@@ -12,7 +12,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.destiny.R;
-import com.example.destiny.domain.adventurer.Adventurer;
+import com.example.destiny.data.adventurer.Adventurer;
 import com.example.destiny.domain.area.Guild;
 
 import java.util.UUID;
