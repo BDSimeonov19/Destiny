@@ -1,6 +1,8 @@
 package com.example.destiny.app;
 
+import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,12 +14,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.destiny.MainActivity;
 import com.example.destiny.R;
 import com.example.destiny.data.adventurer.Adventurer;
 import com.example.destiny.data.enemy.Enemy;
 import com.example.destiny.data.enemy.Flower;
+import com.example.destiny.domain.area.Area;
+import com.example.destiny.domain.area.Battle;
 import com.example.destiny.domain.area.Guild;
 import com.example.destiny.domain.battle.BattleManager;
+import com.example.destiny.domain.battle.BattleState;
 
 import java.util.UUID;
 
@@ -37,6 +44,9 @@ public class BattleActivity extends AppCompatActivity {
         // get intent extras and retrieve adventurer with id
         UUID adventurerId = UUID.fromString(getIntent().getStringExtra("adventurerId"));
         Adventurer adventurer = Guild.getInstance().getAdventurerById(adventurerId);
+
+        // move adventurer to battle area
+        Area.moveAdventurer(adventurer.id, Guild.getInstance(), Battle.getInstance());
 
         // TODO: let the battle area handle the preparations for the battle
 
@@ -60,6 +70,23 @@ public class BattleActivity extends AppCompatActivity {
         // and push updates to UI
         battleManager.battleResult.observe(this, battleResult -> {
             battleLog.append(battleResult.actionLogText);
+
+
+            if(battleResult.battleState == BattleState.VICTORY)
+            {
+                // move adventurer back to guild
+
+                Area.moveAdventurer(adventurer.id, Battle.getInstance(), Guild.getInstance());
+
+                createVictoryDialogBox();
+            }
+
+            if(battleResult.battleState == BattleState.DEFEAT)
+            {
+                // move adventurer back to guild
+                Area.moveAdventurer(adventurer.id, Battle.getInstance(), Guild.getInstance());
+                createVictoryDialogBox();
+            }
         });
 
 
@@ -82,5 +109,22 @@ public class BattleActivity extends AppCompatActivity {
                 battleManager.handleFullTurn(1);
             }
         });
+    }
+
+    private void createVictoryDialogBox() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(BattleActivity.this);
+
+        builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                Intent senderIntent = new Intent(BattleActivity.this, MainActivity.class);
+                startActivity(senderIntent);
+            }
+        });
+
+        builder.setMessage("Victory");
+
+        builder.setCancelable(false);
+
+        builder.create().show();
     }
 }

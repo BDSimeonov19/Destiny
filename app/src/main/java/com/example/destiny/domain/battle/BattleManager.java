@@ -4,6 +4,9 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.destiny.data.adventurer.Adventurer;
 import com.example.destiny.data.enemy.Enemy;
+import com.example.destiny.domain.area.Area;
+import com.example.destiny.domain.area.Battle;
+import com.example.destiny.domain.area.Guild;
 
 public class BattleManager {
     // live data so the UI can be updated throughout the execution of battle
@@ -18,6 +21,8 @@ public class BattleManager {
         this.adventurer = adventurer;
         this.enemy = enemy;
         this.currentTextOutput = "";
+
+        // move adventurer to battle area
     }
 
     public void handleFullTurn(int attackIsSpecial)
@@ -51,6 +56,13 @@ public class BattleManager {
                             this.battleState
                     )
             );
+        }
+
+        // if fight has ended, update stats of player
+        if (this.battleState != BattleState.ONGOING)
+        {
+            adventurer.records.battles += 1;
+            adventurer.records.victories += (this.battleState == BattleState.VICTORY) ? 1 : 0;
         }
     }
 

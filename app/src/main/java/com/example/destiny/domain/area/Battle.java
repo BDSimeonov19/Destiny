@@ -10,8 +10,6 @@ public class Battle extends Area{
 
     private static final Battle instance = new Battle();
 
-    private BattleManager battleManager;
-
     // private constructor as to forbid creating instances
     private Battle(){}
 
@@ -28,8 +26,7 @@ public class Battle extends Area{
         }
 
         ArrayList<Adventurer> adventurersList = new ArrayList<>(super.adventurers.values());
-        // TODO: add enemy random creation, add activity for battle, check if the live data works
-        // TODO: basically tomorrow focus on the activity and hooking it up to a visual
+        // TODO: add enemy random creation,
         // TODO: also don't forget that you need to handle EXP and saving good luck!
         //this.battleManager = new BattleManager(adventurersList.get(0), );
 
@@ -39,5 +36,5 @@ public class Battle extends Area{
     public void createEnemy() {}
     // TODO: battle setup which would be called to prepare the adventurer, prepare the enemy and
     // TODO: then the UI can call the battle manager with the info here seems good :D, something like
-    // TODO: the current battle but with the functionalities i've  described here
+    // TODO: the current battle() but with the functionalities i've described here
 }

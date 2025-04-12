@@ -38,14 +38,12 @@ public class BattleFragment extends Fragment {
 
         // on click item from list logic
 
-        adventurersListView.setOnItemClickListener(
-                new AdapterView.OnItemClickListener(){
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        openBattleActivity(view, adventurers.get(position));
-                    }
-                }
-        );
+        adventurersListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                openBattleActivity(view, adventurers.get(position));
+            }
+        });
 
         return view;
     }
