@@ -75,17 +75,15 @@ public class BattleActivity extends AppCompatActivity {
             if(battleResult.battleState == BattleState.VICTORY)
             {
                 // move adventurer back to guild
-
                 Area.moveAdventurer(adventurer.id, Battle.getInstance(), Guild.getInstance());
-
-                createVictoryDialogBox();
+                createVictoryDialogBox("Victory");
             }
 
             if(battleResult.battleState == BattleState.DEFEAT)
             {
                 // move adventurer back to guild
                 Area.moveAdventurer(adventurer.id, Battle.getInstance(), Guild.getInstance());
-                createVictoryDialogBox();
+                createVictoryDialogBox("Defeat");
             }
         });
 
@@ -111,7 +109,7 @@ public class BattleActivity extends AppCompatActivity {
         });
     }
 
-    private void createVictoryDialogBox() {
+    private void createVictoryDialogBox(String messageText) {
         AlertDialog.Builder builder = new AlertDialog.Builder(BattleActivity.this);
 
         builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
@@ -121,10 +119,20 @@ public class BattleActivity extends AppCompatActivity {
             }
         });
 
-        builder.setMessage("Victory");
+        builder.setMessage(messageText);
 
         builder.setCancelable(false);
-
+        // because this stupid line above does not work, the official documentation
+        // does a horrible job at providing coherent code snippets to follow for example
+        // and the only information outside of that is 12 year old outdated stackoverflow posts
+        // I am forced to apply the same functionality to the on cancel listener
+        builder.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialog) {
+                Intent senderIntent = new Intent(BattleActivity.this, MainActivity.class);
+                startActivity(senderIntent);
+            }
+        });
         builder.create().show();
     }
 }

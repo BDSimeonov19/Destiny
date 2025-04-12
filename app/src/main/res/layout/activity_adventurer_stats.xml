@@ -191,7 +191,7 @@
             app:srcCompat="@drawable/stat_total_battles" />
 
         <TextView
-            android:id="@+id/victoriesTextView"
+            android:id="@+id/totalBattlesTextView"
             android:layout_width="248dp"
             android:layout_height="60dp"
             android:paddingTop="17dp"
@@ -201,7 +201,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/totalBattlesTextView"
+            android:id="@+id/victoriesTextView"
             android:layout_width="248dp"
             android:layout_height="60dp"
             android:paddingTop="17dp"
