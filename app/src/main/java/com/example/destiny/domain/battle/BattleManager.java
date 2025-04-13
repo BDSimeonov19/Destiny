@@ -1,38 +1,44 @@
 package com.example.destiny.domain.battle;
 
+import android.os.Handler;
+import android.os.Looper;
+
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.destiny.data.adventurer.Adventurer;
 import com.example.destiny.data.enemy.Enemy;
-import com.example.destiny.domain.area.Area;
-import com.example.destiny.domain.area.Battle;
-import com.example.destiny.domain.area.Guild;
 
 import java.util.ArrayList;
 
 public class BattleManager {
     // live data so the UI can be updated throughout the execution of battle
-    public MutableLiveData<BattleResult> battleResult = new MutableLiveData<>();
+    public MutableLiveData<BattleSnapshot> battleSnapshot = new MutableLiveData<>();
     private Enemy activeEnemy;
     private ArrayList<Enemy> enemies;
     private Adventurer adventurer;
     private String currentTextOutput;
     private BattleState battleState;
+    private TurnState turnState;
 
     public BattleManager(Adventurer adventurer, ArrayList<Enemy> enemies)
     {
         this.adventurer = adventurer;
         this.enemies = enemies;
         currentTextOutput = "";
-        // set active enemy to be the first provided enemy
-        activeEnemy = enemies.get(0);
-        enemies.remove(0);
+        turnState = TurnState.PLAYER_TURN;
+        loadNewEnemy();
     }
 
     public void handleFullTurn(int attackIsSpecial)
     {
+        // if this function has been called not on a player turn, return
+        if(turnState != TurnState.PLAYER_TURN){
+            return;
+        }
         // execute player turn and take battle state
         handlePlayerTurn(attackIsSpecial);
+        // hand off turn to enemy
+        turnState = TurnState.ENEMY_TURN;
 
         // load new enemy if current battle is victorious
         if(battleState == BattleState.VICTORY)
@@ -41,39 +47,48 @@ public class BattleManager {
         }
 
         // update battle result after player turn
-        battleResult.setValue(
-                new BattleResult(
+        battleSnapshot.setValue(
+                new BattleSnapshot(
                         adventurer,
                         activeEnemy,
                         currentTextOutput,
-                        battleState
+                        battleState,
+                        turnState
                 )
         );
 
-        // TODO: add delay between turns
-        // if player hasn't won, continue to enemy turn
-        if (battleState != BattleState.VICTORY)
-        {
-            // execute enemy turn and take battle state
-            handleEnemyTurn();
+        // add delay to enemy turn
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // if player hasn't won, continue to enemy turn
+                if (battleState != BattleState.VICTORY)
+                {
+                    // execute enemy turn
+                    handleEnemyTurn();
+                    // hand off turn to player
+                    turnState = TurnState.PLAYER_TURN;
 
-            // update battle result after enemy turn
-            battleResult.setValue(
-                    new BattleResult(
-                            adventurer,
-                            activeEnemy,
-                            currentTextOutput,
-                            battleState
-                    )
-            );
-        }
+                    // update battle result after enemy turn
+                    battleSnapshot.setValue(
+                            new BattleSnapshot(
+                                    adventurer,
+                                    activeEnemy,
+                                    currentTextOutput,
+                                    battleState,
+                                    turnState
+                            )
+                    );
+                }
 
-        // if fight has ended, update stats of player
-        if (battleState != BattleState.ONGOING)
-        {
-            adventurer.records.battles += 1;
-            adventurer.records.victories += (battleState == BattleState.VICTORY) ? 1 : 0;
-        }
+                // if fight has ended, update stats of player
+                if (battleState != BattleState.ONGOING)
+                {
+                    adventurer.records.battles += 1;
+                    adventurer.records.victories += (battleState == BattleState.VICTORY) ? 1 : 0;
+                }
+            }
+        }, 1000);
     }
 
     private void loadNewEnemy()
