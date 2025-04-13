@@ -41,16 +41,19 @@ public class BattleActivity extends AppCompatActivity {
             return insets;
         });
 
-        // get intent extras and retrieve adventurer with id
+        // get intent extras
         UUID adventurerId = UUID.fromString(getIntent().getStringExtra("adventurerId"));
+        String difficulty = getIntent().getStringExtra("difficulty");
+
+        // retrieve adventurer with id
         Adventurer adventurer = Guild.getInstance().getAdventurerById(adventurerId);
 
         // move adventurer to battle area
-        Area.moveAdventurer(adventurer.id, Guild.getInstance(), Battle.getInstance());
+        Battle battle = Battle.getInstance();
+        Area.moveAdventurer(adventurer.id, Guild.getInstance(), battle);
 
-        // TODO: let the battle area handle the preparations for the battle
-
-        Enemy enemy = new Flower();
+        // let the battle area handle the preparations for the battle
+        battle.battleSetup(difficulty);
 
         // get battle log text view
         TextView battleLog = findViewById(R.id.battleLogTextView);
@@ -60,17 +63,19 @@ public class BattleActivity extends AppCompatActivity {
         ImageView enemyImage = findViewById(R.id.enemyImageView);
 
         adventurerImage.setImageResource(adventurer.getSpriteDrawableId());
-        enemyImage.setImageResource(enemy.getSpriteDrawableId());
+        enemyImage.setImageResource(battle.enemies.get(0).getSpriteDrawableId()); // first enemy's sprite is loaded
 
 
         // create battle manager
-        BattleManager battleManager = new BattleManager(adventurer, enemy);
+        BattleManager battleManager = new BattleManager(adventurer, battle.enemies);
 
         // set up observer that receives updates when battle result is updated
         // and push updates to UI
         battleManager.battleResult.observe(this, battleResult -> {
+            // update battle log
             battleLog.append(battleResult.actionLogText);
-
+            // set image to active enemy
+            enemyImage.setImageResource(battleResult.activeEnemy.getSpriteDrawableId());
 
             if(battleResult.battleState == BattleState.VICTORY)
             {

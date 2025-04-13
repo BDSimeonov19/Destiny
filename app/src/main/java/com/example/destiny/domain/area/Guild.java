@@ -51,12 +51,12 @@ public class Guild extends Area {
 
         if(adventurer != null)
         {
-            this.addAdventurer(adventurer);
+            addAdventurer(adventurer);
         }
     }
 
     public ArrayList<Adventurer> getAllAdventurers()
     {
-        return new ArrayList<Adventurer>(this.adventurers.values());
+        return new ArrayList<Adventurer>(adventurers.values());
     }
 }

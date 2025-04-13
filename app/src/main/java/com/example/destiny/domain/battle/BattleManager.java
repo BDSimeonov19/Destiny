@@ -8,61 +8,84 @@ import com.example.destiny.domain.area.Area;
 import com.example.destiny.domain.area.Battle;
 import com.example.destiny.domain.area.Guild;
 
+import java.util.ArrayList;
+
 public class BattleManager {
     // live data so the UI can be updated throughout the execution of battle
     public MutableLiveData<BattleResult> battleResult = new MutableLiveData<>();
-    private Enemy enemy;
+    private Enemy activeEnemy;
+    private ArrayList<Enemy> enemies;
     private Adventurer adventurer;
     private String currentTextOutput;
     private BattleState battleState;
 
-    public BattleManager(Adventurer adventurer, Enemy enemy)
+    public BattleManager(Adventurer adventurer, ArrayList<Enemy> enemies)
     {
         this.adventurer = adventurer;
-        this.enemy = enemy;
-        this.currentTextOutput = "";
-
-        // move adventurer to battle area
+        this.enemies = enemies;
+        currentTextOutput = "";
+        // set active enemy to be the first provided enemy
+        activeEnemy = enemies.get(0);
+        enemies.remove(0);
     }
 
     public void handleFullTurn(int attackIsSpecial)
     {
         // execute player turn and take battle state
-        this.handlePlayerTurn(attackIsSpecial);
+        handlePlayerTurn(attackIsSpecial);
+
+        // load new enemy if current battle is victorious
+        if(battleState == BattleState.VICTORY)
+        {
+            loadNewEnemy();
+        }
 
         // update battle result after player turn
-        this.battleResult.setValue(
+        battleResult.setValue(
                 new BattleResult(
-                        this.adventurer,
-                        this.enemy,
-                        this.currentTextOutput,
-                        this.battleState
+                        adventurer,
+                        activeEnemy,
+                        currentTextOutput,
+                        battleState
                 )
         );
 
         // TODO: add delay between turns
         // if player hasn't won, continue to enemy turn
-        if (this.battleState != BattleState.VICTORY)
+        if (battleState != BattleState.VICTORY)
         {
             // execute enemy turn and take battle state
-            this.handleEnemyTurn();
+            handleEnemyTurn();
 
             // update battle result after enemy turn
-            this.battleResult.setValue(
+            battleResult.setValue(
                     new BattleResult(
-                            this.adventurer,
-                            this.enemy,
-                            this.currentTextOutput,
-                            this.battleState
+                            adventurer,
+                            activeEnemy,
+                            currentTextOutput,
+                            battleState
                     )
             );
         }
 
         // if fight has ended, update stats of player
-        if (this.battleState != BattleState.ONGOING)
+        if (battleState != BattleState.ONGOING)
         {
             adventurer.records.battles += 1;
-            adventurer.records.victories += (this.battleState == BattleState.VICTORY) ? 1 : 0;
+            adventurer.records.victories += (battleState == BattleState.VICTORY) ? 1 : 0;
+        }
+    }
+
+    private void loadNewEnemy()
+    {
+        // if there are enemies left
+        if(!enemies.isEmpty())
+        {
+            activeEnemy = enemies.get(0);
+            enemies.remove(0);
+            currentTextOutput = activeEnemy.monsterType + " has appeared!\n";
+            // set battle state to ongoing as battle is not finished
+            battleState = BattleState.ONGOING;
         }
     }
 
@@ -85,48 +108,48 @@ public class BattleManager {
             }
 
 
-            int damage = enemy.defend(adventurerAttack, adventurer.attackType);
+            int damage = activeEnemy.defend(adventurerAttack, adventurer.attackType);
 
             currentTextOutput += adventurer.adventurerName + " dealt " + damage + " damage\n";
         }
 
 
         // if adventurer died declare adventurer has fallen
-        if(enemy.combatStats.currentHealth <= 0)
+        if(activeEnemy.combatStats.currentHealth <= 0)
         {
-            currentTextOutput += enemy.monsterType + " has fallen!\n";
-            this.battleState = BattleState.VICTORY;
+            currentTextOutput += activeEnemy.monsterType + " has fallen!\n";
+            battleState = BattleState.VICTORY;
             return;
         }
 
-        this.battleState = BattleState.ONGOING;
+        battleState = BattleState.ONGOING;
     }
 
     private void handleEnemyTurn()
     {
         currentTextOutput = "";
 
-        int enemyAttack = enemy.attack();
+        int enemyAttack = activeEnemy.attack();
 
         // check if attack is critical
-        if(enemyAttack == (int) Math.ceil(enemy.combatStats.attack * enemy.combatStats.critDamage))
+        if(enemyAttack == (int) Math.ceil(activeEnemy.combatStats.attack * activeEnemy.combatStats.critDamage))
         {
             currentTextOutput += "Critical hit! ";
         }
 
 
-        int damage = adventurer.defend(enemyAttack, enemy.attackType);
+        int damage = adventurer.defend(enemyAttack, activeEnemy.attackType);
 
-        currentTextOutput += enemy.monsterType + " dealt " + damage + " damage\n";
+        currentTextOutput += activeEnemy.monsterType + " dealt " + damage + " damage\n";
 
         // if adventurer died declare adventurer has fallen
         if(adventurer.combatStats.currentHealth <= 0)
         {
             currentTextOutput += adventurer.adventurerName + " has fallen!\n";
-            this.battleState = BattleState.DEFEAT;
+            battleState = BattleState.DEFEAT;
             return;
         }
 
-        this.battleState = BattleState.ONGOING;
+        battleState = BattleState.ONGOING;
     }
 }

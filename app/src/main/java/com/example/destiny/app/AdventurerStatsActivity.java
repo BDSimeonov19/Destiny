@@ -57,8 +57,8 @@ public class AdventurerStatsActivity extends AppCompatActivity {
         TextView physicalResistanceTextView = findViewById(R.id.physicalResistanceTextView);
         TextView magicalResistanceTextView = findViewById(R.id.magicalResistanceTextView);
         TextView critTextView = findViewById(R.id.critTextView);
-        TextView victoriesTextView = findViewById(R.id.totalBattlesTextView);
-        TextView totalBattlesTextView = findViewById(R.id.victoriesTextView);
+        TextView victoriesTextView = findViewById(R.id.victoriesTextView);
+        TextView totalBattlesTextView = findViewById(R.id.totalBattlesTextView);
 
 
         // set text in layout

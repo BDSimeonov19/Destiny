@@ -6,14 +6,14 @@ import com.example.destiny.data.enemy.Enemy;
 // this class is used to transfer data from the battle manager to the UI
 public class BattleResult {
     public Adventurer adventurer;
-    public Enemy enemy;
+    public Enemy activeEnemy;
     public String actionLogText;
     public BattleState battleState;
 
 
     public BattleResult(Adventurer adventurer, Enemy enemy, String actionLogText, BattleState battleState) {
         this.adventurer = adventurer;
-        this.enemy = enemy;
+        this.activeEnemy = enemy;
         this.actionLogText = actionLogText;
         this.battleState = battleState;
     }

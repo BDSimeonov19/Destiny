@@ -1,14 +1,22 @@
 package com.example.destiny.domain.area;
 
-import com.example.destiny.domain.battle.BattleManager;
+import com.example.destiny.data.enemy.Enemy;
+import com.example.destiny.data.enemy.Flower;
+import com.example.destiny.data.enemy.Mushroom;
+import com.example.destiny.data.enemy.Skeleton;
 import com.example.destiny.data.adventurer.Adventurer;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Random;
 
 // this class is a singleton
 public class Battle extends Area{
 
     private static final Battle instance = new Battle();
+
+    public ArrayList<Enemy> enemies = new ArrayList<>();
+    public ArrayList<Class<?>> enemyClassList = new ArrayList<>(Arrays.asList(Flower.class, Mushroom.class, Skeleton.class));
 
     // private constructor as to forbid creating instances
     private Battle(){}
@@ -17,7 +25,25 @@ public class Battle extends Area{
         return instance;
     }
 
-    public void battle()
+    public void createEnemy(int numberOfEnemies)
+    {
+        // try-catch block exists to handle a possible instantiation exception
+        try {
+            Random random = new Random();
+            for(int i = 0; i < numberOfEnemies; i++)
+            {
+                // create instance of randomly selected enemy
+                Enemy enemy = (Enemy) enemyClassList.get(random.nextInt(enemyClassList.size())).newInstance();
+                enemies.add(enemy);
+            }
+        }
+        catch(Exception e) {
+            // do nothing
+        }
+    }
+
+    // TODO: also don't forget that you need to handle EXP and saving good luck!
+    public void battleSetup(String difficulty)
     {
         // don't start battle if there isn't exactly one adventurer in the area
         if(super.adventurers.size() != 1)
@@ -25,16 +51,26 @@ public class Battle extends Area{
             return;
         }
 
-        ArrayList<Adventurer> adventurersList = new ArrayList<>(super.adventurers.values());
-        // TODO: add enemy random creation,
-        // TODO: also don't forget that you need to handle EXP and saving good luck!
-        //this.battleManager = new BattleManager(adventurersList.get(0), );
+        // extract only adventurer
+        Adventurer adventurer = new ArrayList<>(super.adventurers.values()).get(0);
+
+        // heal adventurer
+        adventurer.combatStats.currentHealth = adventurer.combatStats.maxHealth;
+
+        // create number of enemies based on difficulty
+        switch(difficulty)
+        {
+            case "Easy":
+                createEnemy(1);
+                break;
+            case "Medium":
+                createEnemy(2);
+                break;
+            case "Hard":
+                createEnemy(3);
+                break;
+        }
 
     }
 
-    // TODO: create random enemy if not specified
-    public void createEnemy() {}
-    // TODO: battle setup which would be called to prepare the adventurer, prepare the enemy and
-    // TODO: then the UI can call the battle manager with the info here seems good :D, something like
-    // TODO: the current battle() but with the functionalities i've described here
 }
