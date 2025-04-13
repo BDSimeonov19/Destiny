@@ -1,10 +1,11 @@
 package com.example.destiny.data.adventurer;
 
-import com.example.destiny.domain.Records;
+import com.example.destiny.data.Records;
 
+import java.io.Serializable;
 import java.util.UUID;
 
-public abstract class Adventurer {
+public abstract class Adventurer implements Serializable {
     public UUID id;
     public String adventurerName;
     public AttackType attackType;

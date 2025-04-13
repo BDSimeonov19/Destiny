@@ -81,12 +81,6 @@ public class BattleManager {
                     );
                 }
 
-                // if fight has ended, update stats of player
-                if (battleState != BattleState.ONGOING)
-                {
-                    adventurer.records.battles += 1;
-                    adventurer.records.victories += (battleState == BattleState.VICTORY) ? 1 : 0;
-                }
             }
         }, 1000);
     }
@@ -134,6 +128,9 @@ public class BattleManager {
         {
             currentTextOutput += activeEnemy.monsterType + " has fallen!\n";
             battleState = BattleState.VICTORY;
+            adventurer.records.battles += 1;
+            adventurer.records.victories += 1;
+
             return;
         }
 
@@ -162,6 +159,7 @@ public class BattleManager {
         {
             currentTextOutput += adventurer.adventurerName + " has fallen!\n";
             battleState = BattleState.DEFEAT;
+            adventurer.records.battles += 1;
             return;
         }
 

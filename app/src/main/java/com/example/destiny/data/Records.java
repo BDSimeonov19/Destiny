@@ -1,6 +1,8 @@
-package com.example.destiny.domain;
+package com.example.destiny.data;
 
-public class Records {
+import java.io.Serializable;
+
+public class Records implements Serializable {
     public Records(int battles, int victories)
     {
         this.battles = battles;

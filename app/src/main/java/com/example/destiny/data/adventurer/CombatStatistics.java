@@ -1,6 +1,8 @@
 package com.example.destiny.data.adventurer;
 
-public class CombatStatistics {
+import java.io.Serializable;
+
+public class CombatStatistics implements Serializable {
     public CombatStatistics(int attack, int physicalResistance, int magicalResistance, int maxHealth, int currentHealth, float critRate, float critDamage)
     {
         this.attack = attack;

@@ -1,7 +1,7 @@
 package com.example.destiny.data.adventurer;
 
 import com.example.destiny.R;
-import com.example.destiny.domain.Records;
+import com.example.destiny.data.Records;
 
 public class Warlock extends Adventurer{
     public Warlock(String adventurerName)

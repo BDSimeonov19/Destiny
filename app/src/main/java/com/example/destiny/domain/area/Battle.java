@@ -19,7 +19,10 @@ public class Battle extends Area{
     public ArrayList<Class<?>> enemyClassList = new ArrayList<>(Arrays.asList(Flower.class, Mushroom.class, Skeleton.class));
 
     // private constructor as to forbid creating instances
-    private Battle(){}
+    private Battle()
+    {
+        super.fileName = "battle.json";
+    }
 
     public static Battle getInstance() {
         return instance;
@@ -72,5 +75,4 @@ public class Battle extends Area{
         }
 
     }
-
 }

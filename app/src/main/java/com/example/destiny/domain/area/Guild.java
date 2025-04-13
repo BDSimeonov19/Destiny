@@ -8,6 +8,7 @@ import com.example.destiny.data.adventurer.Mage;
 import com.example.destiny.data.adventurer.Paladin;
 import com.example.destiny.data.adventurer.Warlock;
 
+import java.io.File;
 import java.util.ArrayList;
 
 // this class is a singleton
@@ -15,7 +16,10 @@ public class Guild extends Area {
     private static final Guild instance = new Guild();
 
     // private constructor as to forbid creating instances
-    private Guild(){}
+    private Guild()
+    {
+        super.fileName = "guild.json";
+    }
 
     public static Guild getInstance() {
         return instance;
