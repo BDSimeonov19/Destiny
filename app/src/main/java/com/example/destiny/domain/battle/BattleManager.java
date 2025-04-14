@@ -5,8 +5,8 @@ import android.os.Looper;
 
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.destiny.data.adventurer.Adventurer;
-import com.example.destiny.data.enemy.Enemy;
+import com.example.destiny.data.models.adventurer.Adventurer;
+import com.example.destiny.data.models.enemy.Enemy;
 
 import java.util.ArrayList;
 

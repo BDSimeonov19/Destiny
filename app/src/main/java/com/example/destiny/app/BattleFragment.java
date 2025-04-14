@@ -14,7 +14,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.example.destiny.R;
-import com.example.destiny.data.adventurer.Adventurer;
+import com.example.destiny.data.models.adventurer.Adventurer;
 import com.example.destiny.domain.area.Guild;
 
 import java.util.ArrayList;

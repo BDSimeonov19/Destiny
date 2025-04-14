@@ -1,10 +1,10 @@
-package com.example.destiny.data.adventurer;
+package com.example.destiny.data.models.adventurer;
 
 import com.example.destiny.R;
-import com.example.destiny.data.Records;
+import com.example.destiny.data.models.Records;
 
-public class Paladin extends Adventurer{
-    public Paladin(String adventurerName)
+public class Assassin extends Adventurer{
+    public Assassin(String adventurerName)
     {
         int attack = 5;
         int physicalResistance = 2;
@@ -19,13 +19,13 @@ public class Paladin extends Adventurer{
         super.id = java.util.UUID.randomUUID();
         super.adventurerName = adventurerName;
         super.attackType = AttackType.PHYSICAL;
-        super.className = "Paladin";
+        super.className = "Assassin";
         super.experience = 0;
         // TODO: add records
         super.records = new Records(0, 0);
         super.specialCooldown = 0;
-        super.spriteDrawableId = R.drawable.sprite_paladin;
-        super.iconDrawableId = R.drawable.icon_paladin;
+        super.spriteDrawableId = R.drawable.sprite_assassin;
+        super.iconDrawableId = R.drawable.icon_assassin;
     }
 
     public int specialAttack() {

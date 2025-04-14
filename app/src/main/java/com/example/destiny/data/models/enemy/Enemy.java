@@ -1,21 +1,13 @@
-package com.example.destiny.data.adventurer;
+package com.example.destiny.data.models.enemy;
 
-import com.example.destiny.data.Records;
+import com.example.destiny.data.models.adventurer.AttackType;
+import com.example.destiny.data.models.adventurer.CombatStatistics;
 
-import java.io.Serializable;
-import java.util.UUID;
-
-public abstract class Adventurer implements Serializable {
-    public UUID id;
-    public String adventurerName;
+public abstract class Enemy {
+    public String monsterType;
     public AttackType attackType;
-    public String className;
-    public int experience;
     public CombatStatistics combatStats;
-    public Records records;
-    public int specialCooldown;
     protected int spriteDrawableId;
-    protected int iconDrawableId;
 
     public int attack()
     {
@@ -28,7 +20,7 @@ public abstract class Adventurer implements Serializable {
         }
         return attackValue;
     }
-    public abstract int specialAttack();
+
     public int defend(int attack, AttackType attackType) {
         // reduce attack by defence for specific type
         attack = attackType == AttackType.PHYSICAL ?
@@ -40,13 +32,9 @@ public abstract class Adventurer implements Serializable {
 
         //reduce current health by attack
         this.combatStats.currentHealth -= attack;
+
         return attack;
     }
 
-    public int getSpriteDrawableId()
-    {
-        return this.spriteDrawableId;
-    }
-
-    public int getIconDrawableId() { return this.iconDrawableId; }
+    public int getSpriteDrawableId() { return this.spriteDrawableId; }
 }

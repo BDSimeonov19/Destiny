@@ -1,10 +1,10 @@
 package com.example.destiny.domain.area;
 
-import com.example.destiny.data.enemy.Enemy;
-import com.example.destiny.data.enemy.Flower;
-import com.example.destiny.data.enemy.Mushroom;
-import com.example.destiny.data.enemy.Skeleton;
-import com.example.destiny.data.adventurer.Adventurer;
+import com.example.destiny.data.models.enemy.Enemy;
+import com.example.destiny.data.models.enemy.Flower;
+import com.example.destiny.data.models.enemy.Mushroom;
+import com.example.destiny.data.models.enemy.Skeleton;
+import com.example.destiny.data.models.adventurer.Adventurer;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,14 +1,13 @@
 package com.example.destiny.domain.area;
 
-import com.example.destiny.data.adventurer.Adventurer;
-import com.example.destiny.data.adventurer.Assassin;
-import com.example.destiny.data.adventurer.Berserker;
-import com.example.destiny.data.adventurer.Knight;
-import com.example.destiny.data.adventurer.Mage;
-import com.example.destiny.data.adventurer.Paladin;
-import com.example.destiny.data.adventurer.Warlock;
+import com.example.destiny.data.models.adventurer.Adventurer;
+import com.example.destiny.data.models.adventurer.Assassin;
+import com.example.destiny.data.models.adventurer.Berserker;
+import com.example.destiny.data.models.adventurer.Knight;
+import com.example.destiny.data.models.adventurer.Mage;
+import com.example.destiny.data.models.adventurer.Paladin;
+import com.example.destiny.data.models.adventurer.Warlock;
 
-import java.io.File;
 import java.util.ArrayList;
 
 // this class is a singleton

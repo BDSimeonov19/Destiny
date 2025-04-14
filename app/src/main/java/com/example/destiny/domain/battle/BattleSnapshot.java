@@ -1,7 +1,7 @@
 package com.example.destiny.domain.battle;
 
-import com.example.destiny.data.adventurer.Adventurer;
-import com.example.destiny.data.enemy.Enemy;
+import com.example.destiny.data.models.adventurer.Adventurer;
+import com.example.destiny.data.models.enemy.Enemy;
 
 // this class is used to transfer data from the battle manager to the UI
 public class BattleSnapshot {

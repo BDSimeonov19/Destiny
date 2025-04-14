@@ -17,7 +17,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.destiny.MainActivity;
 import com.example.destiny.R;
-import com.example.destiny.data.adventurer.Adventurer;
+import com.example.destiny.data.models.adventurer.Adventurer;
 import com.example.destiny.domain.area.Area;
 import com.example.destiny.domain.area.Battle;
 import com.example.destiny.domain.area.Guild;

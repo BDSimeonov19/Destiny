@@ -1,4 +1,4 @@
-package com.example.destiny.data;
+package com.example.destiny.data.models;
 
 import java.io.Serializable;
 

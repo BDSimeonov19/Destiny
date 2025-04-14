@@ -1,8 +1,8 @@
-package com.example.destiny.data.enemy;
+package com.example.destiny.data.models.enemy;
 
 import com.example.destiny.R;
-import com.example.destiny.data.adventurer.AttackType;
-import com.example.destiny.data.adventurer.CombatStatistics;
+import com.example.destiny.data.models.adventurer.AttackType;
+import com.example.destiny.data.models.adventurer.CombatStatistics;
 
 public class Skeleton extends Enemy{
     public Skeleton()

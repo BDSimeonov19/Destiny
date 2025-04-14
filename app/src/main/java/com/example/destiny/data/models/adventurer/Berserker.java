@@ -1,7 +1,7 @@
-package com.example.destiny.data.adventurer;
+package com.example.destiny.data.models.adventurer;
 
 import com.example.destiny.R;
-import com.example.destiny.data.Records;
+import com.example.destiny.data.models.Records;
 
 public class Berserker extends Adventurer{
     public Berserker(String adventurerName)

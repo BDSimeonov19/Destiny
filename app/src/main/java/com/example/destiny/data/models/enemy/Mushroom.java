@@ -1,11 +1,11 @@
-package com.example.destiny.data.enemy;
+package com.example.destiny.data.models.enemy;
 
 import com.example.destiny.R;
-import com.example.destiny.data.adventurer.AttackType;
-import com.example.destiny.data.adventurer.CombatStatistics;
+import com.example.destiny.data.models.adventurer.AttackType;
+import com.example.destiny.data.models.adventurer.CombatStatistics;
 
-public class Flower extends Enemy{
-    public Flower()
+public class Mushroom extends Enemy{
+    public Mushroom()
     {
         int attack = 5;
         int physicalResistance = 2;
@@ -18,7 +18,7 @@ public class Flower extends Enemy{
         super.combatStats = new CombatStatistics(attack, physicalResistance, magicalResistance, maxHealth, currentHealth, critRate, critDamage);
 
         super.attackType = AttackType.PHYSICAL;
-        super.monsterType = "Flower";
-        super.spriteDrawableId = R.drawable.enemy_flower;
+        super.monsterType = "Mushroom";
+        super.spriteDrawableId = R.drawable.enemy_mushroom;
     }
 }
