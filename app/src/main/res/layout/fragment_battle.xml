@@ -5,14 +5,16 @@
     android:id="@+id/battleFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#862CA6"
+    android:background="@color/bone"
     tools:context=".app.BattleFragment">
 
     <ListView
         android:id="@+id/adventurersList"
         android:layout_width="match_parent"
         android:layout_height="350dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="118dp"
+        android:layout_marginEnd="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,11 +23,11 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:tag="my_tag_battle"
-        android:text="RAAAHHHHH FIGHTING"
-        android:textColor="#FFFEFE"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Choose your adventurer:"
+        android:textColor="@color/dark_red"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -34,32 +36,35 @@
         android:id="@+id/difficultyRadioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="64dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/adventurersList"
-        android:orientation="horizontal">
+        app:layout_constraintTop_toBottomOf="@+id/adventurersList">
 
         <RadioButton
             android:id="@+id/easyRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Easy" />
+            android:text="Easy"
+            android:textColor="@color/dark_red" />
 
         <RadioButton
             android:id="@+id/mediumRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="true"
             android:layout_marginStart="32dp"
-            android:text="Medium" />
+            android:checked="true"
+            android:text="Medium"
+            android:textColor="@color/dark_red" />
 
         <RadioButton
             android:id="@+id/hardRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:text="Hard" />
+            android:text="Hard"
+            android:textColor="@color/dark_red" />
 
     </RadioGroup>
 

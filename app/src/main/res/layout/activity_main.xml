@@ -5,18 +5,21 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/gray"
     tools:context=".MainActivity">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/gray"
         app:itemIconSize="40dp"
         app:itemIconTint="@null"
         app:itemPaddingBottom="10dp"
         app:itemPaddingTop="16dp"
         app:itemTextAppearanceActive="@style/TextAppearance.Material3.LabelLarge"
         app:itemTextAppearanceInactive="@style/TextAppearance.Material3.LabelLarge"
+        app:itemTextColor="@color/dark_red"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,6 +33,7 @@
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/gray" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

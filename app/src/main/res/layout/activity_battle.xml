@@ -6,53 +6,67 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bone"
     tools:context=".app.BattleActivity">
 
     <ImageView
         android:id="@+id/adventurerImageView"
-        android:layout_width="152dp"
-        android:layout_height="158dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="200dp"
+        android:layout_width="303dp"
+        android:layout_height="304dp"
+        android:layout_marginTop="224dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/sprite_paladin" />
 
     <ImageView
         android:id="@+id/enemyImageView"
-        android:layout_width="152dp"
-        android:layout_height="158dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_width="215dp"
+        android:layout_height="267dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/enemy_mushroom" />
 
     <Button
         android:id="@+id/basicAttackButton"
-        android:layout_width="wrap_content"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="65dp"
+        android:layout_marginStart="50dp"
         android:layout_marginBottom="32dp"
+        android:paddingLeft="40dp"
+        android:paddingTop="12dp"
+        android:paddingRight="40dp"
+        android:paddingBottom="12dp"
         android:text="Basic"
+        android:textSize="18sp"
+        app:cornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/specialAttackButton"
-        android:layout_width="wrap_content"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="64dp"
+        android:layout_marginEnd="50dp"
         android:layout_marginBottom="32dp"
+        android:paddingLeft="40dp"
+        android:paddingTop="12dp"
+        android:paddingRight="40dp"
+        android:paddingBottom="12dp"
         android:text="Special"
+        android:textSize="18sp"
+        app:cornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ScrollView
         android:layout_width="358dp"
         android:layout_height="140dp"
-        android:layout_marginTop="32dp"
-        android:background="#CACACA"
+        android:layout_marginTop="20dp"
+        android:background="@color/gray"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
         app:layout_constraintBottom_toTopOf="@+id/basicAttackButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,7 +75,9 @@
         <TextView
             android:id="@+id/battleLogTextView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textColor="@color/dark_red"
+            android:textSize="24sp" />
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
