@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".app.TrainingActivity">
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/statsGrid"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        app:columnCount="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/experienceTextView">
+
+        <ImageButton
+            android:id="@+id/maxHealthPlusButton"
+            android:layout_width="50dp"
+            android:layout_height="44dp"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            app:layout_column="2"
+            app:layout_row="3"
+            app:srcCompat="@drawable/back_arrow" />
+
+        <ImageButton
+            android:id="@+id/magicalResistancePlusButton"
+            android:layout_width="50dp"
+            android:layout_height="44dp"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            app:layout_column="2"
+            app:layout_row="2"
+            app:srcCompat="@drawable/back_arrow" />
+
+        <ImageButton
+            android:id="@+id/physicalResistancePlusButton"
+            android:layout_width="50dp"
+            android:layout_height="44dp"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            app:layout_column="2"
+            app:layout_row="1"
+            app:srcCompat="@drawable/back_arrow" />
+
+        <TextView
+            android:id="@+id/physicalResistanceTextView"
+            android:layout_width="185dp"
+            android:layout_height="62dp"
+            android:paddingTop="17dp"
+            android:text="@string/physical_resistance"
+            android:textAlignment="center"
+            android:textColor="@color/dark_red"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_column="1"
+            app:layout_row="1" />
+
+        <TextView
+            android:id="@+id/magicalResistanceTextView"
+            android:layout_width="185dp"
+            android:layout_height="62dp"
+            android:paddingTop="17dp"
+            android:text="@string/magical_resistance"
+            android:textAlignment="center"
+            android:textColor="@color/dark_red"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_column="1"
+            app:layout_row="2" />
+
+        <TextView
+            android:id="@+id/maxHealthTextView"
+            android:layout_width="185dp"
+            android:layout_height="62dp"
+            android:paddingTop="17dp"
+            android:text="@string/max_health"
+            android:textAlignment="center"
+            android:textColor="@color/dark_red"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_column="1"
+            app:layout_row="3" />
+
+        <TextView
+            android:id="@+id/critTextView"
+            android:layout_width="185dp"
+            android:layout_height="62dp"
+            android:paddingTop="17dp"
+            android:text="@string/crit_rate"
+            android:textAlignment="center"
+            android:textColor="@color/dark_red"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_column="1"
+            app:layout_row="4" />
+
+        <ImageView
+            android:id="@+id/attackImageView"
+            android:layout_width="130dp"
+            android:layout_height="60dp"
+            app:layout_column="0"
+            app:layout_row="0"
+            app:srcCompat="@drawable/stat_attack" />
+
+        <ImageView
+            android:id="@+id/physResImageView"
+            android:layout_width="130dp"
+            android:layout_height="60dp"
+            app:layout_column="0"
+            app:layout_row="1"
+            app:srcCompat="@drawable/stat_phys_res" />
+
+        <ImageView
+            android:id="@+id/magicResImageView"
+            android:layout_width="130dp"
+            android:layout_height="60dp"
+            app:layout_column="0"
+            app:layout_row="2"
+            app:srcCompat="@drawable/stat_magic_res" />
+
+        <ImageView
+            android:id="@+id/maxHealthImageView"
+            android:layout_width="130dp"
+            android:layout_height="60dp"
+            app:layout_column="0"
+            app:layout_row="3"
+            app:srcCompat="@drawable/stat_health" />
+
+        <ImageView
+            android:id="@+id/critImageView"
+            android:layout_width="130dp"
+            android:layout_height="60dp"
+            app:layout_column="0"
+            app:layout_row="4"
+            app:srcCompat="@drawable/stat_crit" />
+
+        <TextView
+            android:id="@+id/attackTextView"
+            android:layout_width="185dp"
+            android:layout_height="62dp"
+            android:paddingTop="17dp"
+            android:text="@string/attack"
+            android:textAlignment="center"
+            android:textColor="@color/dark_red"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_column="1"
+            app:layout_row="0" />
+
+        <ImageButton
+            android:id="@+id/attackPlusButton"
+            android:layout_width="50dp"
+            android:layout_height="44dp"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            app:layout_column="2"
+            app:layout_row="0"
+            app:srcCompat="@drawable/back_arrow" />
+
+        <ImageButton
+            android:id="@+id/critRatePlusButton"
+            android:layout_width="50dp"
+            android:layout_height="44dp"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            app:layout_column="2"
+            app:layout_row="4"
+            app:srcCompat="@drawable/back_arrow" />
+
+    </androidx.gridlayout.widget.GridLayout>
+
+    <TextView
+        android:id="@+id/adventurerNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:textColor="@color/dark_red"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/classTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/dark_red"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adventurerNameTextView" />
+
+    <TextView
+        android:id="@+id/attackTypeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/dark_red"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/classTextView" />
+
+    <TextView
+        android:id="@+id/experienceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/dark_red"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/attackTypeTextView" />
+
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_arrow" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

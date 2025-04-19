@@ -61,6 +61,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="358dp"
         android:layout_height="140dp"
         android:layout_marginTop="20dp"
@@ -79,5 +80,23 @@
             android:textColor="@color/dark_red"
             android:textSize="24sp" />
     </ScrollView>
+
+    <TextView
+        android:id="@+id/enemyHealthTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/adventurerHealthTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/adventurerImageView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

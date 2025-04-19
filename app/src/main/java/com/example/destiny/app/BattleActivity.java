@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -62,11 +63,19 @@ public class BattleActivity extends AppCompatActivity {
         Button specialAttackButton = findViewById(R.id.specialAttackButton);
         ImageView adventurerImage = findViewById(R.id.adventurerImageView);
         ImageView enemyImage = findViewById(R.id.enemyImageView);
+        TextView adventurerHealth = findViewById(R.id.adventurerHealthTextView);
+        TextView enemyHealth = findViewById(R.id.enemyHealthTextView);
+        ScrollView scrollView = findViewById(R.id.scrollView2);
 
         // set image resources to sprites
         adventurerImage.setImageResource(adventurer.getSpriteDrawableId());
         enemyImage.setImageResource(battle.enemies.get(0).getSpriteDrawableId()); // first enemy's sprite is loaded
 
+        // set health text
+        String startAdventurerHealthText = adventurer.combatStats.currentHealth + "/" + adventurer.combatStats.maxHealth;
+        String startEnemyHealthText = battle.enemies.get(0).combatStats.currentHealth + "/" + battle.enemies.get(0).combatStats.maxHealth;
+        adventurerHealth.setText(startAdventurerHealthText);
+        enemyHealth.setText(startEnemyHealthText);
 
         // create battle manager
         BattleManager battleManager = new BattleManager(adventurer, battle.enemies);
@@ -76,8 +85,17 @@ public class BattleActivity extends AppCompatActivity {
         battleManager.battleSnapshot.observe(this, battleSnapshot -> {
             // update battle log
             battleLog.append(battleSnapshot.actionLogText);
+            // scroll down to bottom
+            scrollView.fullScroll(View.FOCUS_DOWN);
             // set image to active enemy
             enemyImage.setImageResource(battleSnapshot.activeEnemy.getSpriteDrawableId());
+
+            // set health
+            String adventurerHealthText = battleSnapshot.adventurer.combatStats.currentHealth + "/" + battleSnapshot.adventurer.combatStats.maxHealth;
+            String enemyHealthText = battleSnapshot.activeEnemy.combatStats.currentHealth + "/" + battleSnapshot.activeEnemy.combatStats.maxHealth;
+            adventurerHealth.setText(adventurerHealthText);
+            enemyHealth.setText(enemyHealthText);
+
 
             // enable buttons on player turn
             if(battleSnapshot.turnState == TurnState.PLAYER_TURN)
@@ -144,10 +162,10 @@ public class BattleActivity extends AppCompatActivity {
         builder.setMessage(messageText);
 
         builder.setCancelable(false);
-        // because this stupid line above does not work, the official documentation
+        // the line above alone does not work. The official documentation
         // does a horrible job at providing coherent code snippets to follow for example
-        // and the only information outside of that is 12 year old outdated stackoverflow posts
-        // I am forced to apply the same functionality to the on cancel listener
+        // and the only information outside of that is 12 year old outdated stackoverflow posts.
+        // I am forced to apply the same functionality to the on cancel listener to make it work for some reason
         builder.setOnCancelListener(new DialogInterface.OnCancelListener() {
             @Override
             public void onCancel(DialogInterface dialog) {

@@ -103,7 +103,7 @@ public class BattleManager {
         currentTextOutput = "";
         if(attackIsSpecial == 1)
         {
-            //TODO:add special attacks and consider special effects
+            //TODO:add special attacks
         }
         else
         {
@@ -130,6 +130,7 @@ public class BattleManager {
             battleState = BattleState.VICTORY;
             adventurer.records.battles += 1;
             adventurer.records.victories += 1;
+            adventurer.experience += 1;
 
             return;
         }

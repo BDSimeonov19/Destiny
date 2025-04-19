@@ -35,10 +35,6 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-//        // set data directory of Battle, Guild and Training areas
-//        Battle.getInstance().setFileName(getDataDir().toString());
-//        Guild.getInstance().setFileName(getDataDir().toString());
-//        Training.getInstance().setFileName(getDataDir().toString());
 
         // fetch data from files
         Battle.getInstance().fetchData();

@@ -9,6 +9,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -19,7 +20,7 @@ public class AdventurerRepository {
         return instance;
     }
 
-    public void saveAdventurers(HashMap<UUID, Adventurer> adventurers, String fileName)
+    public void saveAdventurers(ArrayList<Adventurer> adventurers, String fileName)
     {
         try
         {
@@ -35,15 +36,15 @@ public class AdventurerRepository {
         }
     }
 
-    public HashMap<UUID, Adventurer> getAdventurers(String fileName)
+    public ArrayList<Adventurer> getAdventurers(String fileName)
     {
-        HashMap<UUID, Adventurer> adventurers = new HashMap<>();
+        ArrayList<Adventurer> adventurers = new ArrayList<>();
         try
         {
             // read adventurers from file
             FileInputStream fileInputStream = App.getInstance().getContext().openFileInput(fileName);
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-            adventurers = (HashMap<UUID, Adventurer>) objectInputStream.readObject();
+            adventurers = (ArrayList<Adventurer>) objectInputStream.readObject();
             objectInputStream.close();
         }
         catch (Exception e) {

@@ -46,17 +46,26 @@ public class Battle extends Area{
         }
     }
 
-    // TODO: also don't forget that you need to handle EXP and saving good luck!
+    // TODO: also don't forget that you need to handle EXP
     public void battleSetup(String difficulty)
     {
-        // don't start battle if there isn't exactly one adventurer in the area
-        if(super.adventurers.size() != 1)
+        // more than one character means an error has occurred, send everyone other than the last added adventurer to guild
+        if(super.adventurers.size() > 1)
+        {
+            for(int i = 0; i < super.adventurers.size()-1; i++)
+            {
+                Adventurer adv = super.adventurers.get(i);
+                Guild.moveAdventurer(adv.id, this, Guild.getInstance());
+            }
+        }
+        // if is empty, different error has occurred, return
+        if(super.adventurers.isEmpty())
         {
             return;
         }
 
         // extract only adventurer
-        Adventurer adventurer = new ArrayList<>(super.adventurers.values()).get(0);
+        Adventurer adventurer = super.adventurers.get(0);
 
         // heal adventurer
         adventurer.combatStats.currentHealth = adventurer.combatStats.maxHealth;

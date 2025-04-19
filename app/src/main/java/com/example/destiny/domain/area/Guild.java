@@ -60,6 +60,6 @@ public class Guild extends Area {
 
     public ArrayList<Adventurer> getAllAdventurers()
     {
-        return new ArrayList<Adventurer>(adventurers.values());
+        return adventurers;
     }
 }
