@@ -66,6 +66,7 @@ public class BattleActivity extends AppCompatActivity {
         TextView adventurerHealth = findViewById(R.id.adventurerHealthTextView);
         TextView enemyHealth = findViewById(R.id.enemyHealthTextView);
         ScrollView scrollView = findViewById(R.id.scrollView2);
+        TextView cooldown = findViewById(R.id.cooldownTextView);
 
         // set image resources to sprites
         adventurerImage.setImageResource(adventurer.getSpriteDrawableId());
@@ -89,6 +90,9 @@ public class BattleActivity extends AppCompatActivity {
             scrollView.fullScroll(View.FOCUS_DOWN);
             // set image to active enemy
             enemyImage.setImageResource(battleSnapshot.activeEnemy.getSpriteDrawableId());
+            // set cooldown text
+            String cooldownText = battleSnapshot.adventurer.special.currentCooldown + " turns";
+            cooldown.setText(cooldownText);
 
             // set health
             String adventurerHealthText = battleSnapshot.adventurer.combatStats.currentHealth + "/" + battleSnapshot.adventurer.combatStats.maxHealth;

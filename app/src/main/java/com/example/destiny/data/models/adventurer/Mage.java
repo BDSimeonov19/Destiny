@@ -2,6 +2,7 @@ package com.example.destiny.data.models.adventurer;
 
 import com.example.destiny.R;
 import com.example.destiny.data.models.Records;
+import com.example.destiny.data.models.special.Enhance;
 
 public class Mage extends Adventurer{
     public Mage(String adventurerName)
@@ -15,6 +16,8 @@ public class Mage extends Adventurer{
         float critDamage = 1.4f;
 
         super.combatStats = new CombatStatistics(attack, physicalResistance, magicalResistance, maxHealth, currentHealth, critRate, critDamage);
+
+        super.special = new Enhance(super.combatStats);
 
         super.id = java.util.UUID.randomUUID();
         super.adventurerName = adventurerName;

@@ -110,7 +110,7 @@ public class BattleManager {
             // handle special attacks
             if(adventurer.special instanceof SpecialAttack)
             {
-                SpecialAttack specialAttack = (SpecialAttack) (adventurer.special);
+                SpecialAttack specialAttack = (SpecialAttack) adventurer.special;
 
                 // set cooldown to max
                 specialAttack.currentCooldown = specialAttack.maxCooldown;
@@ -131,9 +131,15 @@ public class BattleManager {
             }
 
             // handle special effects
-            if(adventurer.special.getClass() == SpecialEffect.class)
+            if(adventurer.special instanceof SpecialEffect)
             {
+                SpecialEffect specialEffect = (SpecialEffect) adventurer.special;
 
+                // apply/initiate special effect
+                specialEffect.applySpecialEffect(adventurer, activeEnemy);
+
+                // set cooldown to max
+                specialEffect.currentCooldown = specialEffect.maxCooldown;
             }
         }
         else
@@ -154,6 +160,15 @@ public class BattleManager {
             int damage = activeEnemy.defend(adventurerAttack, adventurer.attackType);
 
             currentTextOutput += adventurer.adventurerName + " dealt " + damage + " damage\n";
+        }
+
+        // decrement special effect duration
+        if(adventurer.special instanceof SpecialEffect)
+        {
+            SpecialEffect specialEffect = (SpecialEffect) adventurer.special;
+
+            // execute a special effect "turn"
+            specialEffect.executeSpecialEffect(adventurer, activeEnemy);
         }
 
 
