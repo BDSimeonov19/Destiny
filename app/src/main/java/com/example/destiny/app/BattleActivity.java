@@ -100,26 +100,26 @@ public class BattleActivity extends AppCompatActivity {
             // enable buttons on player turn
             if(battleSnapshot.turnState == TurnState.PLAYER_TURN)
             {
-                basicAttackButton.setActivated(true);
-                //TODO: make custom enabled and disabled style for button and change between them when player doesn't have control
-                //basicAttackButton.setBackgroundTintList(ColorStateList.valueOf(0x8C47D1));
-                specialAttackButton.setActivated(true);
-                //specialAttackButton.setBackgroundTintList(ColorStateList.valueOf(0x8C47D1));
+                basicAttackButton.setClickable(true);
+                basicAttackButton.setBackgroundColor(getColor(R.color.red));
+                specialAttackButton.setClickable(true);
+                specialAttackButton.setBackgroundColor(getColor(R.color.red));
             }
 
             // disable buttons on enemy turn
             if(battleSnapshot.turnState == TurnState.ENEMY_TURN)
             {
-                basicAttackButton.setActivated(false);
-                //basicAttackButton.setBackgroundTintList(ColorStateList.valueOf(0xBCBBBD));
-                specialAttackButton.setActivated(false);
-                //specialAttackButton.setBackgroundTintList(ColorStateList.valueOf(0xBCBBBD));
+                basicAttackButton.setClickable(false);
+                basicAttackButton.setBackgroundColor(getColor(R.color.inactive_gray));
+                specialAttackButton.setClickable(false);
+                specialAttackButton.setBackgroundColor(getColor(R.color.inactive_gray));
             }
 
             // disable special button if current special cooldown is not 0
             if(battleSnapshot.adventurer.special.currentCooldown > 0)
             {
-                specialAttackButton.setActivated(false);
+                specialAttackButton.setClickable(false);
+                specialAttackButton.setBackgroundColor(getColor(R.color.inactive_gray));
             }
 
 
