@@ -1,6 +1,7 @@
 package com.example.destiny.data.models.adventurer;
 
 import com.example.destiny.data.models.Records;
+import com.example.destiny.data.models.special.Special;
 
 import java.io.Serializable;
 import java.util.UUID;
@@ -13,7 +14,7 @@ public abstract class Adventurer implements Serializable {
     public int experience;
     public CombatStatistics combatStats;
     public Records records;
-    public int specialCooldown;
+    public Special special;
     protected int spriteDrawableId;
     protected int iconDrawableId;
 

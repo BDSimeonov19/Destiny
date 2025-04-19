@@ -116,6 +116,15 @@ public class BattleActivity extends AppCompatActivity {
                 //specialAttackButton.setBackgroundTintList(ColorStateList.valueOf(0xBCBBBD));
             }
 
+            // disable special button if current special cooldown is not 0
+            if(battleSnapshot.adventurer.special.currentCooldown > 0)
+            {
+                specialAttackButton.setActivated(false);
+            }
+
+
+
+
             if(battleSnapshot.battleState == BattleState.VICTORY)
             {
                 // move adventurer back to guild

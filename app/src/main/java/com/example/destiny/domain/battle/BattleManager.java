@@ -7,6 +7,8 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.destiny.data.models.adventurer.Adventurer;
 import com.example.destiny.data.models.enemy.Enemy;
+import com.example.destiny.data.models.special.SpecialAttack;
+import com.example.destiny.data.models.special.SpecialEffect;
 
 import java.util.ArrayList;
 
@@ -104,9 +106,41 @@ public class BattleManager {
         if(attackIsSpecial == 1)
         {
             //TODO:add special attacks
+
+            // handle special attacks
+            if(adventurer.special instanceof SpecialAttack)
+            {
+                SpecialAttack specialAttack = (SpecialAttack) (adventurer.special);
+
+                // set cooldown to max
+                specialAttack.currentCooldown = specialAttack.maxCooldown;
+
+                // handle damage
+                int adventurerAttack = specialAttack.attack();
+
+                // check if attack is critical
+                if(adventurerAttack == (int) Math.ceil(Math.ceil(adventurer.combatStats.attack * specialAttack.attackScaling) * adventurer.combatStats.critDamage))
+                {
+                    currentTextOutput += "Critical hit! ";
+                }
+
+
+                int damage = activeEnemy.defend(adventurerAttack, adventurer.attackType);
+
+                currentTextOutput += adventurer.adventurerName + " dealt " + damage + " damage\n";
+            }
+
+            // handle special effects
+            if(adventurer.special.getClass() == SpecialEffect.class)
+            {
+
+            }
         }
         else
         {
+            // decrease special ability cooldown
+            adventurer.special.currentCooldown -= adventurer.special.currentCooldown > 0 ? 1 : 0;
+
             // handle base attack
             int adventurerAttack = adventurer.attack();
 

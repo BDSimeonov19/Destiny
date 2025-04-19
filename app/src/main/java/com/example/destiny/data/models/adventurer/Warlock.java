@@ -21,9 +21,7 @@ public class Warlock extends Adventurer{
         super.attackType = AttackType.MAGICAL;
         super.className = "Warlock";
         super.experience = 0;
-        // TODO: add records
         super.records = new Records(0, 0);
-        super.specialCooldown = 0;
         super.spriteDrawableId = R.drawable.sprite_warlock;
         super.iconDrawableId = R.drawable.icon_warlock;
     }
