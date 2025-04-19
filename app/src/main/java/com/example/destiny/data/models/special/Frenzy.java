@@ -4,16 +4,16 @@ import com.example.destiny.data.models.adventurer.Adventurer;
 import com.example.destiny.data.models.adventurer.CombatStatistics;
 import com.example.destiny.data.models.enemy.Enemy;
 
-public class Enhance extends SpecialEffect
+public class Frenzy extends SpecialEffect
 {
-    private final int attackIncrease = 1;
-    private final int physicalResistanceIncrease = 1;
-    private final int magicalResistanceIncrease = 2;
-    public Enhance(CombatStatistics combatStatistics) {
-        super(combatStatistics, "Enhance");
+    private int attackIncrease;
+    private int physicalResistanceReduced;
+    private int magicalResistanceReduced;
+    public Frenzy(CombatStatistics combatStatistics) {
+        super(combatStatistics, "Frenzy");
 
         // cooldown
-        super.maxCooldown = 4;
+        super.maxCooldown = 6;
         super.currentCooldown = 0;
 
         super.maxDuration = 3;
@@ -22,10 +22,14 @@ public class Enhance extends SpecialEffect
 
     @Override
     public void applySpecialEffect(Adventurer adventurer, Enemy enemy) {
-        adventurer.combatStats.attack += attackIncrease;
-        adventurer.combatStats.physicalResistance += physicalResistanceIncrease;
-        adventurer.combatStats.magicalResistance += magicalResistanceIncrease;
+        // reduce resistances
+        physicalResistanceReduced = adventurer.combatStats.physicalResistance;
+        magicalResistanceReduced = adventurer.combatStats.magicalResistance;
+        adventurer.combatStats.physicalResistance = 0;
+        adventurer.combatStats.magicalResistance = 0;
 
+        // give atk buff scaling off of resistances reduced
+        attackIncrease = (int) Math.ceil((physicalResistanceReduced + magicalResistanceReduced)/4f);
         currentDuration = maxDuration;
     }
 
@@ -35,8 +39,8 @@ public class Enhance extends SpecialEffect
         if(currentDuration == 1)
         {
             adventurer.combatStats.attack -= attackIncrease;
-            adventurer.combatStats.physicalResistance -= physicalResistanceIncrease;
-            adventurer.combatStats.magicalResistance -= magicalResistanceIncrease;
+            adventurer.combatStats.physicalResistance += physicalResistanceReduced;
+            adventurer.combatStats.magicalResistance += magicalResistanceReduced;
         }
         // decrement duration by one turn
         currentDuration -= currentDuration > 0 ? 1 : 0;
@@ -46,5 +50,4 @@ public class Enhance extends SpecialEffect
     public String battleLogLine(Enemy enemy) {
         return "";
     }
-
 }

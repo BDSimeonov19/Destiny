@@ -5,7 +5,7 @@ import com.example.destiny.data.models.adventurer.CombatStatistics;
 public class HeavyBlow extends SpecialAttack{
 
     public HeavyBlow(CombatStatistics combatStats) {
-        super(combatStats);
+        super(combatStats, "Heavy blow");
         // cooldown
         super.maxCooldown = 2;
         super.currentCooldown = 0;

@@ -6,7 +6,7 @@ public class LifeSteal extends SpecialAttack{
     private int damage = 2;
     private int heal = 3;
     public LifeSteal(CombatStatistics combatStats) {
-        super(combatStats);
+        super(combatStats, "Life Steal");
         // cooldown
         super.maxCooldown = 3;
         super.currentCooldown = 0;

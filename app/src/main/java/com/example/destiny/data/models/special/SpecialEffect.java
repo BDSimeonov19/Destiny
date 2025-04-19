@@ -8,11 +8,13 @@ public abstract class SpecialEffect extends Special{
     public int maxDuration;
     public int currentDuration;
     public CombatStatistics combatStatistics;
-    int countDown;
-    public SpecialEffect(CombatStatistics combatStatistics) {
+    public SpecialEffect(CombatStatistics combatStatistics, String name) {
         this.combatStatistics = combatStatistics;
+        super.name = name;
     }
 
     public abstract void applySpecialEffect(Adventurer adventurer, Enemy enemy);
     public abstract void executeSpecialEffect(Adventurer adventurer, Enemy enemy);
+
+    public abstract String battleLogLine(Enemy enemy);
 }

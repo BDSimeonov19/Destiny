@@ -5,8 +5,9 @@ import com.example.destiny.data.models.adventurer.CombatStatistics;
 public abstract class SpecialAttack extends Special{
     public float attackScaling;
     public CombatStatistics combatStats;
-    public SpecialAttack( CombatStatistics combatStats) {
+    public SpecialAttack(CombatStatistics combatStats, String name) {
         this.combatStats = combatStats;
+        super.name = name;
     }
 
     public abstract int attack();

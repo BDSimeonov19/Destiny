@@ -2,6 +2,7 @@ package com.example.destiny.data.models.adventurer;
 
 import com.example.destiny.R;
 import com.example.destiny.data.models.Records;
+import com.example.destiny.data.models.special.Frenzy;
 
 public class Berserker extends Adventurer{
     public Berserker(String adventurerName)
@@ -15,6 +16,8 @@ public class Berserker extends Adventurer{
         float critDamage = 1.4f;
 
         super.combatStats = new CombatStatistics(attack, physicalResistance, magicalResistance, maxHealth, currentHealth, critRate, critDamage);
+
+        super.special = new Frenzy(super.combatStats);
 
         super.id = java.util.UUID.randomUUID();
         super.adventurerName = adventurerName;

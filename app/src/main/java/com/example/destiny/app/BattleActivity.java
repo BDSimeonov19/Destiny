@@ -72,11 +72,12 @@ public class BattleActivity extends AppCompatActivity {
         adventurerImage.setImageResource(adventurer.getSpriteDrawableId());
         enemyImage.setImageResource(battle.enemies.get(0).getSpriteDrawableId()); // first enemy's sprite is loaded
 
-        // set health text
+        // set text
         String startAdventurerHealthText = adventurer.combatStats.currentHealth + "/" + adventurer.combatStats.maxHealth;
         String startEnemyHealthText = battle.enemies.get(0).combatStats.currentHealth + "/" + battle.enemies.get(0).combatStats.maxHealth;
         adventurerHealth.setText(startAdventurerHealthText);
         enemyHealth.setText(startEnemyHealthText);
+        specialAttackButton.setText(adventurer.special.name);
 
         // create battle manager
         BattleManager battleManager = new BattleManager(adventurer, battle.enemies);
@@ -133,14 +134,14 @@ public class BattleActivity extends AppCompatActivity {
             {
                 // move adventurer back to guild
                 Area.moveAdventurer(adventurer.id, Battle.getInstance(), Guild.getInstance());
-                createVictoryDialogBox("Victory");
+                createDialogBox("Victory");
             }
 
             if(battleSnapshot.battleState == BattleState.DEFEAT)
             {
                 // move adventurer back to guild
                 Area.moveAdventurer(adventurer.id, Battle.getInstance(), Guild.getInstance());
-                createVictoryDialogBox("Defeat");
+                createDialogBox("Defeat");
             }
         });
 
@@ -162,7 +163,7 @@ public class BattleActivity extends AppCompatActivity {
         });
     }
 
-    private void createVictoryDialogBox(String messageText) {
+    private void createDialogBox(String messageText) {
         AlertDialog.Builder builder = new AlertDialog.Builder(BattleActivity.this);
 
         builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {

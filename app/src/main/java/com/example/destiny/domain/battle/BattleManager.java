@@ -105,8 +105,6 @@ public class BattleManager {
         currentTextOutput = "";
         if(attackIsSpecial == 1)
         {
-            //TODO:add special attacks
-
             // handle special attacks
             if(adventurer.special instanceof SpecialAttack)
             {
@@ -127,7 +125,7 @@ public class BattleManager {
 
                 int damage = activeEnemy.defend(adventurerAttack, adventurer.attackType);
 
-                currentTextOutput += adventurer.adventurerName + " dealt " + damage + " damage\n";
+                currentTextOutput += adventurer.adventurerName + " used " + adventurer.special.name + " to deal " + damage + " damage\n";
             }
 
             // handle special effects
@@ -137,6 +135,8 @@ public class BattleManager {
 
                 // apply/initiate special effect
                 specialEffect.applySpecialEffect(adventurer, activeEnemy);
+
+                currentTextOutput += adventurer.adventurerName + " used " + adventurer.special.name + "\n";
 
                 // set cooldown to max
                 specialEffect.currentCooldown = specialEffect.maxCooldown;
@@ -162,13 +162,16 @@ public class BattleManager {
             currentTextOutput += adventurer.adventurerName + " dealt " + damage + " damage\n";
         }
 
-        // decrement special effect duration
+        // execute a special effect "turn"
         if(adventurer.special instanceof SpecialEffect)
         {
             SpecialEffect specialEffect = (SpecialEffect) adventurer.special;
 
-            // execute a special effect "turn"
+            // execute action
             specialEffect.executeSpecialEffect(adventurer, activeEnemy);
+
+            // take text output of action
+            currentTextOutput += specialEffect.battleLogLine(activeEnemy);
         }
 
 

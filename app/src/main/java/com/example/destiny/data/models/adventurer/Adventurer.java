@@ -39,8 +39,8 @@ public abstract class Adventurer implements Serializable {
         // clamp value to 1 if it is below 1
         attack = Math.max(attack, 1);
 
-        //reduce current health by attack
-        this.combatStats.currentHealth -= attack;
+        // reduce current health by attack to a minimum of 0
+        combatStats.currentHealth = Math.max(combatStats.currentHealth - attack, 0);
         return attack;
     }
 
