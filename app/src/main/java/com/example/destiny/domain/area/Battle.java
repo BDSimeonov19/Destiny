@@ -2,6 +2,7 @@ package com.example.destiny.domain.area;
 
 import com.example.destiny.data.models.enemy.Enemy;
 import com.example.destiny.data.models.enemy.Flower;
+import com.example.destiny.data.models.enemy.Harpy;
 import com.example.destiny.data.models.enemy.Mushroom;
 import com.example.destiny.data.models.enemy.Skeleton;
 import com.example.destiny.data.models.adventurer.Adventurer;
@@ -16,7 +17,7 @@ public class Battle extends Area{
     private static final Battle instance = new Battle();
 
     public ArrayList<Enemy> enemies = new ArrayList<>();
-    public ArrayList<Class<?>> enemyClassList = new ArrayList<>(Arrays.asList(Flower.class, Mushroom.class, Skeleton.class));
+    public ArrayList<Class<?>> enemyClassList = new ArrayList<>(Arrays.asList(Flower.class, Mushroom.class, Skeleton.class, Harpy.class));
 
     // private constructor as to forbid creating instances
     private Battle()

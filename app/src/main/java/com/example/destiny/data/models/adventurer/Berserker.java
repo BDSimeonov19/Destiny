@@ -6,10 +6,10 @@ import com.example.destiny.data.models.Records;
 public class Berserker extends Adventurer{
     public Berserker(String adventurerName)
     {
-        int attack = 5;
-        int physicalResistance = 2;
-        int magicalResistance = 1;
-        int maxHealth = 15;
+        int attack = 8;
+        int physicalResistance = 0;
+        int magicalResistance = 0;
+        int maxHealth = 22;
         int currentHealth = maxHealth;
         float critRate = 0.05f;
         float critDamage = 1.4f;

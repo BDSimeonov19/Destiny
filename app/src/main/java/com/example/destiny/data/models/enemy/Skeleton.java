@@ -8,8 +8,8 @@ public class Skeleton extends Enemy{
     public Skeleton()
     {
         int attack = 5;
-        int physicalResistance = 2;
-        int magicalResistance = 1;
+        int physicalResistance = 3;
+        int magicalResistance = 3;
         int maxHealth = 15;
         int currentHealth = maxHealth;
         float critRate = 0.05f;

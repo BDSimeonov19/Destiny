@@ -8,10 +8,10 @@ public class Assassin extends Adventurer{
     {
         int attack = 5;
         int physicalResistance = 2;
-        int magicalResistance = 1;
-        int maxHealth = 15;
+        int magicalResistance = 3;
+        int maxHealth = 17;
         int currentHealth = maxHealth;
-        float critRate = 0.05f;
+        float critRate = 0.2f;
         float critDamage = 1.4f;
 
         super.combatStats = new CombatStatistics(attack, physicalResistance, magicalResistance, maxHealth, currentHealth, critRate, critDamage);

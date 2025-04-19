@@ -27,8 +27,8 @@ public abstract class Enemy {
                 attack - combatStats.physicalResistance :
                 attack - combatStats.magicalResistance;
 
-        // clamp value to 0 if it is negative
-        attack = Math.max(attack, 0);
+        // clamp value to 1 if it is below 1
+        attack = Math.max(attack, 1);
 
         //reduce current health by attack
         this.combatStats.currentHealth -= attack;

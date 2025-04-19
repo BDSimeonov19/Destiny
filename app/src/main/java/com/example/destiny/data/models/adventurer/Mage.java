@@ -6,10 +6,10 @@ import com.example.destiny.data.models.Records;
 public class Mage extends Adventurer{
     public Mage(String adventurerName)
     {
-        int attack = 5;
+        int attack = 6;
         int physicalResistance = 2;
-        int magicalResistance = 1;
-        int maxHealth = 15;
+        int magicalResistance = 3;
+        int maxHealth = 17;
         int currentHealth = maxHealth;
         float critRate = 0.05f;
         float critDamage = 1.4f;

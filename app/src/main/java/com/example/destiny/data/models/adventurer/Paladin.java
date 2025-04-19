@@ -7,11 +7,11 @@ public class Paladin extends Adventurer{
     public Paladin(String adventurerName)
     {
         int attack = 5;
-        int physicalResistance = 2;
-        int magicalResistance = 1;
-        int maxHealth = 15;
+        int physicalResistance = 5;
+        int magicalResistance = 4;
+        int maxHealth = 13;
         int currentHealth = maxHealth;
-        float critRate = 0.05f;
+        float critRate = 0.03f;
         float critDamage = 1.4f;
 
         super.combatStats = new CombatStatistics(attack, physicalResistance, magicalResistance, maxHealth, currentHealth, critRate, critDamage);
