@@ -13,7 +13,7 @@ public class Frenzy extends SpecialEffect
         super(combatStatistics, "Frenzy");
 
         // cooldown
-        super.maxCooldown = 6;
+        super.maxCooldown = 5;
         super.currentCooldown = 0;
 
         super.maxDuration = 3;

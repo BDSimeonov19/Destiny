@@ -7,7 +7,7 @@ public class HeavyBlow extends SpecialAttack{
     public HeavyBlow(CombatStatistics combatStats) {
         super(combatStats, "Heavy blow");
         // cooldown
-        super.maxCooldown = 2;
+        super.maxCooldown = 3;
         super.currentCooldown = 0;
 
         // attack scaling of the attack

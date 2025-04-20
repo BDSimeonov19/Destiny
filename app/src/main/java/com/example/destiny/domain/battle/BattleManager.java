@@ -175,7 +175,7 @@ public class BattleManager {
         }
 
 
-        // if adventurer died declare adventurer has fallen
+        // if enemy died declare enemy has fallen
         if(activeEnemy.combatStats.currentHealth <= 0)
         {
             currentTextOutput += activeEnemy.monsterType + " has fallen!\n";

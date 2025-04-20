@@ -59,6 +59,7 @@ public class AdventurerStatsActivity extends AppCompatActivity {
         TextView critTextView = findViewById(R.id.critTextView);
         TextView victoriesTextView = findViewById(R.id.victoriesTextView);
         TextView totalBattlesTextView = findViewById(R.id.totalBattlesTextView);
+        TextView specialDescriptionTextView = findViewById(R.id.specialDescriptionTextView);
 
 
         // set text in layout
@@ -78,6 +79,7 @@ public class AdventurerStatsActivity extends AppCompatActivity {
         critTextView.setText(getString(R.string.crit_rate, (int) (adventurer.combatStats.critRate*100)));
         victoriesTextView.setText(getString(R.string.victories, adventurer.records.victories));
         totalBattlesTextView.setText(getString(R.string.total_battles, adventurer.records.battles));
+        specialDescriptionTextView.setText(getString(adventurer.specialDescriptionId));
 
 
 

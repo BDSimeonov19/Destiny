@@ -14,10 +14,10 @@ public class Bleed extends SpecialEffect
         super(combatStatistics, "Bleed");
 
         // cooldown
-        super.maxCooldown = 4;
+        super.maxCooldown = 5;
         super.currentCooldown = 0;
 
-        super.maxDuration = 2;
+        super.maxDuration = 3;
         super.currentDuration = 0;
     }
 

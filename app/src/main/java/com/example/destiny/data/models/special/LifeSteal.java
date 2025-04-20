@@ -8,7 +8,7 @@ public class LifeSteal extends SpecialAttack{
     public LifeSteal(CombatStatistics combatStats) {
         super(combatStats, "Life Steal");
         // cooldown
-        super.maxCooldown = 3;
+        super.maxCooldown = 2;
         super.currentCooldown = 0;
 
         // attack scaling of the attack

@@ -10,7 +10,7 @@ public class Block extends SpecialEffect
     public Block(CombatStatistics combatStatistics) {
         super(combatStatistics, "Block");
         // cooldown
-        super.maxCooldown = 3;
+        super.maxCooldown = 4;
         super.currentCooldown = 0;
 
         // duration

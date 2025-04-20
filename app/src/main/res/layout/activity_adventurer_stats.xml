@@ -131,7 +131,7 @@
         android:id="@+id/adventurerNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="35dp"
         android:textColor="@color/dark_red"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -245,5 +245,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/back_arrow" />
+
+    <TextView
+        android:id="@+id/specialDescriptionTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="720dp"
+        android:layout_marginEnd="20dp"
+        android:background="@color/gray"
+        android:paddingLeft="10dp"
+        android:paddingTop="17dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="17dp"
+        android:text=""
+        android:textColor="@color/dark_red"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

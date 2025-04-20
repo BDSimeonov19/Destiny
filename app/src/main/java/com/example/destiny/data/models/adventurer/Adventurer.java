@@ -17,6 +17,7 @@ public abstract class Adventurer implements Serializable {
     public Special special;
     protected int spriteDrawableId;
     protected int iconDrawableId;
+    public int specialDescriptionId;
 
     public int attack()
     {

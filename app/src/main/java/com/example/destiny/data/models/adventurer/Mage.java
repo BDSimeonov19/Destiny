@@ -27,6 +27,7 @@ public class Mage extends Adventurer{
         super.records = new Records(0, 0);
         super.spriteDrawableId = R.drawable.sprite_mage;
         super.iconDrawableId = R.drawable.icon_mage;
+        super.specialDescriptionId = R.string.mage_special;
     }
 
     public int specialAttack() {

@@ -4,6 +4,8 @@
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="colorPrimary">@color/red</item>
+
+        <item name="colorSecondaryContainer">@color/bone</item>
     </style>
 
     <style name="Theme.Destiny" parent="Base.Theme.Destiny" />

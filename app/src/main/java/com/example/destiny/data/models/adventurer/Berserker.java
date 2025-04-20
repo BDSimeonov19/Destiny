@@ -8,8 +8,8 @@ public class Berserker extends Adventurer{
     public Berserker(String adventurerName)
     {
         int attack = 8;
-        int physicalResistance = 0;
-        int magicalResistance = 0;
+        int physicalResistance = 1;
+        int magicalResistance = 1;
         int maxHealth = 22;
         int currentHealth = maxHealth;
         float critRate = 0.05f;
@@ -27,6 +27,7 @@ public class Berserker extends Adventurer{
         super.records = new Records(0, 0);
         super.spriteDrawableId = R.drawable.sprite_berserker;
         super.iconDrawableId = R.drawable.icon_berserker;
+        super.specialDescriptionId = R.string.berserker_special;
     }
 
     public int specialAttack() {
