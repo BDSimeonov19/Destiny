@@ -14,7 +14,7 @@ public class Block extends SpecialEffect
         super.currentCooldown = 0;
 
         // duration
-        super.maxDuration = 2;
+        super.maxDuration = 3;
         super.currentDuration = 0;
     }
 

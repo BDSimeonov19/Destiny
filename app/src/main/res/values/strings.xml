@@ -14,8 +14,8 @@
     <string name="assassin_special">Bleed: Applies bleed to enemy, which reduces their HP over time. Increases crit rate by 30%. Effect lasts for 3 turns.\nCooldown: 5 turns</string>
     <string name="berserker_special">Frenzy: Reduces resistances to 0 and increases ATK based off of reduced resistance for 3 turns.\nCooldown: 5 turns</string>
     <string name="knight_special">Heavy blow: Powerful attack.\nCooldown: 3 turns</string>
-    <string name="mage_special">Enhance: Buffs ATK and resistances for 3 turns.\nCooldown: 4 turns</string>
-    <string name="paladin_special">Block: Blocks incoming attacks for a turn.\nCooldown: 4 turns</string>
-    <string name="warlock_special">Life Steal: Deals a weak attack and in return heals the warlock.\nCooldown: 2 turns</string>
+    <string name="mage_special">Enhance: Buffs ATK and resistances for 2 turns.\nCooldown: 4 turns</string>
+    <string name="paladin_special">Block: Blocks incoming attacks for 2 turns.\nCooldown: 4 turns</string>
+    <string name="warlock_special">Life Steal: Deals a weak attack and in return heals for 8 HP.\nCooldown: 4 turns</string>
 
 </resources>

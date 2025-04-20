@@ -6,7 +6,7 @@ import com.example.destiny.data.models.enemy.Enemy;
 
 public class Enhance extends SpecialEffect
 {
-    private final int attackIncrease = 1;
+    private final int attackIncrease = 2;
     private final int physicalResistanceIncrease = 1;
     private final int magicalResistanceIncrease = 2;
     public Enhance(CombatStatistics combatStatistics) {
