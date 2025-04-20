@@ -1,7 +1,6 @@
 package com.example.destiny.data.models.adventurer;
 
 import com.example.destiny.R;
-import com.example.destiny.data.models.Records;
 import com.example.destiny.data.models.special.Enhance;
 
 public class Mage extends Adventurer{
@@ -28,9 +27,5 @@ public class Mage extends Adventurer{
         super.spriteDrawableId = R.drawable.sprite_mage;
         super.iconDrawableId = R.drawable.icon_mage;
         super.specialDescriptionId = R.string.mage_special;
-    }
-
-    public int specialAttack() {
-        return 0;
     }
 }

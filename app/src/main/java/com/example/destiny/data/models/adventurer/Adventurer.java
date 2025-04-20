@@ -1,6 +1,5 @@
 package com.example.destiny.data.models.adventurer;
 
-import com.example.destiny.data.models.Records;
 import com.example.destiny.data.models.special.Special;
 
 import java.io.Serializable;
@@ -17,7 +16,7 @@ public abstract class Adventurer implements Serializable {
     public Special special;
     protected int spriteDrawableId;
     protected int iconDrawableId;
-    public int specialDescriptionId;
+    protected int specialDescriptionId;
 
     public int attack()
     {
@@ -30,7 +29,6 @@ public abstract class Adventurer implements Serializable {
         }
         return attackValue;
     }
-    public abstract int specialAttack();
     public int defend(int attack, AttackType attackType) {
         // reduce attack by defence for specific type
         attack = attackType == AttackType.PHYSICAL ?
@@ -51,4 +49,6 @@ public abstract class Adventurer implements Serializable {
     }
 
     public int getIconDrawableId() { return this.iconDrawableId; }
+
+    public int getSpecialDescriptionId() { return this.specialDescriptionId; }
 }

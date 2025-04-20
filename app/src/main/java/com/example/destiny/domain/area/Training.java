@@ -16,9 +16,4 @@ public class Training extends Area{
     public static Training getInstance() {
         return instance;
     }
-
-    public void train()
-    {
-
-    }
 }

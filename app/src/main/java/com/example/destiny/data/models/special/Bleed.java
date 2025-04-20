@@ -7,9 +7,9 @@ import com.example.destiny.data.models.enemy.Enemy;
 
 public class Bleed extends SpecialEffect
 {
-    private final float critRateIncrease = 0.30f;
+    private final double critRateIncrease = 0.30;
     private final int bleedOverTime = 3;
-    public int bleedDamage;
+    private int bleedDamage = 0;
     public Bleed(CombatStatistics combatStatistics) {
         super(combatStatistics, "Bleed");
 
@@ -39,14 +39,25 @@ public class Bleed extends SpecialEffect
         // if special effect is to expire this turn, remove buff
         if(currentDuration == 1)
         {
-            adventurer.combatStats.critRate -= critRateIncrease;
+            removeSpecialEffect(adventurer, enemy);
         }
         // decrement duration by one turn
         currentDuration -= currentDuration > 0 ? 1 : 0;
     }
 
     @Override
+    public void removeSpecialEffect(Adventurer adventurer, Enemy enemy) {
+        adventurer.combatStats.critRate -= critRateIncrease;
+        bleedDamage = 0;
+    }
+
+    @Override
     public String battleLogLine(Enemy enemy) {
-        return enemy.monsterType + " bled for " + bleedDamage + " damage\n";
+        if(bleedDamage != 0)
+        {
+            return enemy.monsterType + " bled for " + bleedDamage + " damage\n";
+        }
+        else
+            return "";
     }
 }

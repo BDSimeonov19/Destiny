@@ -1,7 +1,6 @@
 package com.example.destiny.data.models.adventurer;
 
 import com.example.destiny.R;
-import com.example.destiny.data.models.Records;
 import com.example.destiny.data.models.special.Bleed;
 
 public class Assassin extends Adventurer{
@@ -28,9 +27,5 @@ public class Assassin extends Adventurer{
         super.spriteDrawableId = R.drawable.sprite_assassin;
         super.iconDrawableId = R.drawable.icon_assassin;
         super.specialDescriptionId = R.string.assassin_special;
-    }
-
-    public int specialAttack() {
-        return 0;
     }
 }

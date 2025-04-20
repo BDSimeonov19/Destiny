@@ -94,7 +94,7 @@ public class BattleManager {
         {
             activeEnemy = enemies.get(0);
             enemies.remove(0);
-            currentTextOutput = activeEnemy.monsterType + " has appeared!\n";
+            currentTextOutput += activeEnemy.monsterType + " has appeared!\n";
             // set battle state to ongoing as battle is not finished
             battleState = BattleState.ONGOING;
         }
@@ -180,9 +180,20 @@ public class BattleManager {
         {
             currentTextOutput += activeEnemy.monsterType + " has fallen!\n";
             battleState = BattleState.VICTORY;
+
             adventurer.records.battles += 1;
             adventurer.records.victories += 1;
             adventurer.experience += 1;
+
+
+            // remove special effect if it exists
+            if(adventurer.special instanceof SpecialEffect && ((SpecialEffect) adventurer.special).currentDuration != 0)
+            {
+                SpecialEffect specialEffect = (SpecialEffect) adventurer.special;
+
+                // execute action
+                specialEffect.removeSpecialEffect(adventurer, activeEnemy);
+            }
 
             return;
         }
@@ -213,6 +224,15 @@ public class BattleManager {
             currentTextOutput += adventurer.adventurerName + " has fallen!\n";
             battleState = BattleState.DEFEAT;
             adventurer.records.battles += 1;
+
+            // remove special effect if it exists
+            if(adventurer.special instanceof SpecialEffect && ((SpecialEffect) adventurer.special).currentDuration != 0)
+            {
+                SpecialEffect specialEffect = (SpecialEffect) adventurer.special;
+
+                specialEffect.removeSpecialEffect(adventurer, activeEnemy);
+            }
+
             return;
         }
 

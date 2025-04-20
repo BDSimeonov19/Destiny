@@ -1,7 +1,6 @@
 package com.example.destiny.data.models.adventurer;
 
 import com.example.destiny.R;
-import com.example.destiny.data.models.Records;
 import com.example.destiny.data.models.special.LifeSteal;
 
 public class Warlock extends Adventurer{
@@ -28,9 +27,5 @@ public class Warlock extends Adventurer{
         super.spriteDrawableId = R.drawable.sprite_warlock;
         super.iconDrawableId = R.drawable.icon_warlock;
         super.specialDescriptionId = R.string.warlock_special;
-    }
-
-    public int specialAttack() {
-        return 0;
     }
 }

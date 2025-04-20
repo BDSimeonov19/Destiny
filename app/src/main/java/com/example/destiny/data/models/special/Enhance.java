@@ -34,12 +34,17 @@ public class Enhance extends SpecialEffect
         // if special effect is to expire this turn, remove buff
         if(currentDuration == 1)
         {
-            adventurer.combatStats.attack -= attackIncrease;
-            adventurer.combatStats.physicalResistance -= physicalResistanceIncrease;
-            adventurer.combatStats.magicalResistance -= magicalResistanceIncrease;
+            removeSpecialEffect(adventurer, enemy);
         }
         // decrement duration by one turn
         currentDuration -= currentDuration > 0 ? 1 : 0;
+    }
+
+    @Override
+    public void removeSpecialEffect(Adventurer adventurer, Enemy enemy) {
+        adventurer.combatStats.attack -= attackIncrease;
+        adventurer.combatStats.physicalResistance -= physicalResistanceIncrease;
+        adventurer.combatStats.magicalResistance -= magicalResistanceIncrease;
     }
 
     @Override

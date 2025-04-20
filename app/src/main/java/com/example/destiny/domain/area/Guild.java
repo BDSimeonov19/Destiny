@@ -57,9 +57,4 @@ public class Guild extends Area {
             addAdventurer(adventurer);
         }
     }
-
-    public ArrayList<Adventurer> getAllAdventurers()
-    {
-        return adventurers;
-    }
 }

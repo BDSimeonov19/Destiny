@@ -79,7 +79,7 @@ public class AdventurerStatsActivity extends AppCompatActivity {
         critTextView.setText(getString(R.string.crit_rate, (int) (adventurer.combatStats.critRate*100)));
         victoriesTextView.setText(getString(R.string.victories, adventurer.records.victories));
         totalBattlesTextView.setText(getString(R.string.total_battles, adventurer.records.battles));
-        specialDescriptionTextView.setText(getString(adventurer.specialDescriptionId));
+        specialDescriptionTextView.setText(getString(adventurer.getSpecialDescriptionId()));
 
 
 

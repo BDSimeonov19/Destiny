@@ -1,7 +1,6 @@
 package com.example.destiny.data.models.adventurer;
 
 import com.example.destiny.R;
-import com.example.destiny.data.models.Records;
 import com.example.destiny.data.models.special.Frenzy;
 
 public class Berserker extends Adventurer{
@@ -28,9 +27,5 @@ public class Berserker extends Adventurer{
         super.spriteDrawableId = R.drawable.sprite_berserker;
         super.iconDrawableId = R.drawable.icon_berserker;
         super.specialDescriptionId = R.string.berserker_special;
-    }
-
-    public int specialAttack() {
-        return 0;
     }
 }

@@ -14,7 +14,7 @@ public class Block extends SpecialEffect
         super.currentCooldown = 0;
 
         // duration
-        super.maxDuration = 1;
+        super.maxDuration = 2;
         super.currentDuration = 0;
     }
 
@@ -34,11 +34,16 @@ public class Block extends SpecialEffect
         // if special effect is to expire this turn, remove buff
         if(currentDuration == 1)
         {
-            enemy.combatStats.attack = enemyAttack;
-            enemyAttack = 0;
+            removeSpecialEffect(adventurer, enemy);
         }
         // decrement duration by one turn
         currentDuration -= currentDuration > 0 ? 1 : 0;
+    }
+
+    @Override
+    public void removeSpecialEffect(Adventurer adventurer, Enemy enemy) {
+        enemy.combatStats.attack = enemyAttack;
+        enemyAttack = 0;
     }
 
     @Override

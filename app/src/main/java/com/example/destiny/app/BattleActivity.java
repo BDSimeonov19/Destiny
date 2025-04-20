@@ -70,17 +70,17 @@ public class BattleActivity extends AppCompatActivity {
 
         // set image resources to sprites
         adventurerImage.setImageResource(adventurer.getSpriteDrawableId());
-        enemyImage.setImageResource(battle.enemies.get(0).getSpriteDrawableId()); // first enemy's sprite is loaded
+        enemyImage.setImageResource(battle.getEnemies().get(0).getSpriteDrawableId()); // first enemy's sprite is loaded
 
         // set text
         String startAdventurerHealthText = adventurer.combatStats.currentHealth + "/" + adventurer.combatStats.maxHealth;
-        String startEnemyHealthText = battle.enemies.get(0).combatStats.currentHealth + "/" + battle.enemies.get(0).combatStats.maxHealth;
+        String startEnemyHealthText = battle.getEnemies().get(0).combatStats.currentHealth + "/" + battle.getEnemies().get(0).combatStats.maxHealth;
         adventurerHealth.setText(startAdventurerHealthText);
         enemyHealth.setText(startEnemyHealthText);
         specialAttackButton.setText(adventurer.special.name);
 
         // create battle manager
-        BattleManager battleManager = new BattleManager(adventurer, battle.enemies);
+        BattleManager battleManager = new BattleManager(adventurer, battle.getEnemies());
 
         // set up observer that receives updates when battle result is updated
         // and push updates to UI

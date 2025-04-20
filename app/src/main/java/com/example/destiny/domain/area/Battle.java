@@ -16,8 +16,8 @@ public class Battle extends Area{
 
     private static final Battle instance = new Battle();
 
-    public ArrayList<Enemy> enemies = new ArrayList<>();
-    public ArrayList<Class<?>> enemyClassList = new ArrayList<>(Arrays.asList(Flower.class, Mushroom.class, Skeleton.class, Harpy.class));
+    private ArrayList<Enemy> enemies = new ArrayList<>();
+    private final ArrayList<Class<?>> enemyClassList = new ArrayList<>(Arrays.asList(Flower.class, Mushroom.class, Skeleton.class, Harpy.class));
 
     // private constructor as to forbid creating instances
     private Battle()
@@ -31,6 +31,7 @@ public class Battle extends Area{
 
     public void createEnemy(int numberOfEnemies)
     {
+        enemies.clear();
         // try-catch block exists to handle a possible instantiation exception
         try {
             Random random = new Random();
@@ -45,8 +46,6 @@ public class Battle extends Area{
             // do nothing
         }
     }
-
-    // TODO: also don't forget that you need to handle EXP
     public void battleSetup(String difficulty)
     {
         // more than one character means an error has occurred, send everyone other than the last added adventurer to guild
@@ -67,8 +66,9 @@ public class Battle extends Area{
         // extract only adventurer
         Adventurer adventurer = super.adventurers.get(0);
 
-        // heal adventurer
+        // prepare adventurer for combat
         adventurer.combatStats.currentHealth = adventurer.combatStats.maxHealth;
+        adventurer.special.currentCooldown = 0;
 
         // create number of enemies based on difficulty
         switch(difficulty)
@@ -85,4 +85,5 @@ public class Battle extends Area{
         }
 
     }
+    public ArrayList<Enemy> getEnemies() { return this.enemies; }
 }

@@ -11,7 +11,7 @@ public class HeavyBlow extends SpecialAttack{
         super.currentCooldown = 0;
 
         // attack scaling of the attack
-        super.attackScaling = 1.5f;
+        super.attackScaling = 1.5;
     }
 
     @Override

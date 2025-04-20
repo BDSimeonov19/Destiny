@@ -3,8 +3,8 @@ package com.example.destiny.data.models.special;
 import com.example.destiny.data.models.adventurer.CombatStatistics;
 
 public class LifeSteal extends SpecialAttack{
-    private int damage = 2;
-    private int heal = 3;
+    private final int damage = 2;
+    private final int heal = 3;
     public LifeSteal(CombatStatistics combatStats) {
         super(combatStats, "Life Steal");
         // cooldown
@@ -12,7 +12,7 @@ public class LifeSteal extends SpecialAttack{
         super.currentCooldown = 0;
 
         // attack scaling of the attack
-        super.attackScaling = 0f;
+        super.attackScaling = 0;
     }
 
     @Override

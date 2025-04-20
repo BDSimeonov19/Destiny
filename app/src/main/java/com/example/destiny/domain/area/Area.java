@@ -11,9 +11,9 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public abstract class Area {
-    public ArrayList<Adventurer> adventurers = new ArrayList<>();
-    public String fileName;
-    AdventurerRepository repository = new AdventurerRepository();
+    protected ArrayList<Adventurer> adventurers = new ArrayList<>();
+    protected String fileName;
+    private final AdventurerRepository repository = new AdventurerRepository();
 
     public void addAdventurer(Adventurer adventurer)
     {
@@ -31,13 +31,10 @@ public abstract class Area {
     {
         return adventurers;
     }
-
     public void fetchData()
     {
         adventurers = repository.getAdventurers(fileName);
     }
-
-
     public static void moveAdventurer(UUID id, Area currentLocation, Area newLocation)
     {
         Adventurer adventurer = null;

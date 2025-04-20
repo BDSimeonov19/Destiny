@@ -30,6 +30,7 @@ public class Frenzy extends SpecialEffect
 
         // give atk buff scaling off of resistances reduced
         attackIncrease = (int) Math.ceil((physicalResistanceReduced + magicalResistanceReduced)/4f);
+        adventurer.combatStats.attack += attackIncrease;
         currentDuration = maxDuration;
     }
 
@@ -38,12 +39,17 @@ public class Frenzy extends SpecialEffect
         // if special effect is to expire this turn, remove buff
         if(currentDuration == 1)
         {
-            adventurer.combatStats.attack -= attackIncrease;
-            adventurer.combatStats.physicalResistance += physicalResistanceReduced;
-            adventurer.combatStats.magicalResistance += magicalResistanceReduced;
+            removeSpecialEffect(adventurer, enemy);
         }
         // decrement duration by one turn
         currentDuration -= currentDuration > 0 ? 1 : 0;
+    }
+
+    @Override
+    public void removeSpecialEffect(Adventurer adventurer, Enemy enemy) {
+        adventurer.combatStats.attack -= attackIncrease;
+        adventurer.combatStats.physicalResistance += physicalResistanceReduced;
+        adventurer.combatStats.magicalResistance += magicalResistanceReduced;
     }
 
     @Override
